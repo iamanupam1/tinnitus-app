@@ -199,7 +199,7 @@ const Homepage = () => {
             patients. This information is a work in progress and not meant to be
             considered definitive for all tinnitus patients. It is a work in
             progress and not meant to be considered complete. Treating tinnitus
-            patients is not a "one size fits all" approach. The content found in
+            patients is not a one size fits all approach. The content found in
             this tool may be helpful in developing treatment plans or strategies
             that can be customized for individual patients.
           </p>
