@@ -56,7 +56,7 @@ const TeamPage = () => {
             Our team of dedicated professionals brings together a wealth of
             experience in audiology, tinnitus management, and patient care. We
             are committed to providing the best possible support and guidance to
-            both healthcare providers and individuals affected by tinnitus.
+            both healthcare providers and individuals affected by tinnitus.Kudos for the best team.
           </p>
           <p className="text-gray-700">
             With our combined expertise and passion for improving tinnitus care,
