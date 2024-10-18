@@ -1,3 +1,4 @@
+import { NAV_LINKS } from "@/enum";
 import {
   MapPin,
   Menu,
@@ -7,6 +8,7 @@ import {
   Instagram,
   Youtube,
 } from "lucide-react";
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
@@ -57,9 +59,9 @@ export const Navbar = () => {
 
       <div className="flex flex-wrap items-center justify-between py-6">
         <div className="w-1/2 md:w-auto">
-          <a href="index.html" className="text-white font-bold text-2xl">
-            Tinnitus Support
-          </a>
+          <Link href="/" className="text-white font-bold text-2xl">
+            Tinnitus Counseling Tool
+          </Link>
         </div>
 
         <label htmlFor="menu-toggle" className="pointer-cursor md:hidden block">
@@ -71,20 +73,20 @@ export const Navbar = () => {
         <div className="hidden md:block w-full md:w-auto" id="menu">
           <nav className="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none">
             <ul className="md:flex items-center">
-              {["Home", "Team", "About", "Blog", "Contact"].map(
+              {NAV_LINKS.map(
                 (item, index) => (
                   <li
-                    key={item}
+                    key={item.label}
                     className={`${index !== 0 ? "md:ml-4" : ""} ${
-                      item === "Blog" ? "md:hidden lg:block" : ""
+                      item.label === "Blog" ? "md:hidden lg:block" : ""
                     }`}
                   >
-                    <a
+                    <Link
                       className="py-2 inline-block md:text-white md:px-2 font-semibold"
-                      href="#"
+                      href={item.path}
                     >
-                      {item}
-                    </a>
+                      {item.label}
+                    </Link>
                   </li>
                 )
               )}
