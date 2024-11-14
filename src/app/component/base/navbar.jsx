@@ -1,4 +1,4 @@
-import { NAV_LINKS } from "@/enum";
+"use client";
 import {
   MapPin,
   Menu,
@@ -7,10 +7,21 @@ import {
   Twitter,
   Instagram,
   Youtube,
+  ChevronDown, // Import ChevronDown icon for the indicator
 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import { NAV_LINKS } from "../../../enum";
 
 export const Navbar = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
+
+  const toggleDropdown = (index) => {
+    setIsDropdownOpen(!isDropdownOpen);
+    setOpenDropdownIndex(index);
+  };
+
   return (
     <header className="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64">
       <div
@@ -71,25 +82,54 @@ export const Navbar = () => {
         <input className="hidden" type="checkbox" id="menu-toggle" />
 
         <div className="hidden md:block w-full md:w-auto" id="menu">
-          <nav className="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none">
-            <ul className="md:flex items-center">
-              {NAV_LINKS.map(
-                (item, index) => (
-                  <li
-                    key={item.label}
-                    className={`${index !== 0 ? "md:ml-4" : ""} ${
-                      item.label === "Blog" ? "md:hidden lg:block" : ""
-                    }`}
-                  >
+          <nav className="w-full bg-white rounded-lg shadow-lg px-6 py-4 text-center md:bg-transparent md:shadow-none md:px-0 md:py-0">
+            <ul className="md:flex items-center justify-between">
+              {NAV_LINKS.map((item, index) => (
+                <li
+                  key={item.label}
+                  className={`${index !== 0 ? "md:ml-6" : ""} ${
+                    item.label === "Blog" ? "md:hidden lg:block" : ""
+                  }`}
+                >
+                  {item.sub_link ? (
+                    <div className="relative group">
+                      <button
+                        className="py-2 inline-block md:text-white md:px-4 font-semibold flex items-center"
+                        onClick={() => toggleDropdown(index)}
+                      >
+                        {item.label}
+                        <ChevronDown
+                          className={`ml-2 transition-transform ${
+                            isDropdownOpen && openDropdownIndex === index
+                              ? "rotate-180"
+                              : "rotate-0"
+                          }`}
+                        />
+                      </button>
+                      {isDropdownOpen && openDropdownIndex === index && (
+                        <div className="absolute bg-white shadow-lg text-left w-100 rounded-lg p-2 mt-2 z-10 md:block group-hover:block">
+                          {item.sub_link.map((subLink) => (
+                            <Link
+                              key={subLink.label}
+                              href={subLink.path}
+                              className="block p-2 hover:bg-gray-100 rounded-md"
+                            >
+                              {subLink.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
                     <Link
-                      className="py-2 inline-block md:text-white md:px-2 font-semibold"
+                      className="py-2 inline-block md:text-white md:px-4 font-semibold"
                       href={item.path}
                     >
                       {item.label}
                     </Link>
-                  </li>
-                )
-              )}
+                  )}
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
