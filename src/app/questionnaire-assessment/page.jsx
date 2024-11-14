@@ -86,7 +86,7 @@ const QuestionnaireAssessmentPage = () => {
             When choosing a questionnaire for tinnitus patients, we consider
             factors such as the specific symptoms, the impact on daily life, and
             the purpose of the assessment to ensure it accurately captures the
-            patient's experience and aids in effective treatment planning.
+            patient&apos;s experience and aids in effective treatment planning.
           </p>
         </div>
         <div className="bg-gray-100 px-8 py-4">
