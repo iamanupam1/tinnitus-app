@@ -14,7 +14,7 @@ const TinnitusQuestionnairesComponent = () => {
       <div>
         <p>
           A screening tool used to gather initial information about the
-          patient's tinnitus symptoms and assess its impact on daily life. This
+          patients tinnitus symptoms and assess its impact on daily life. This
           helps in determining whether tinnitus is their primary concern.
         </p>
         <DocxViewer documents={docs} />
@@ -53,7 +53,7 @@ const TinnitusQuestionnairesComponent = () => {
         <p className="mt-2 leading-relaxed text-justify">
           These questionnaires help assess the severity, impact, and
           characteristics of tinnitus. They aim to gather information about the
-          patient's tinnitus experience, including its duration, intensity, and
+          patients tinnitus experience, including its duration, intensity, and
           effects on daily life, enabling the practice to tailor an appropriate
           treatment plan.
         </p>

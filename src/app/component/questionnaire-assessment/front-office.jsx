@@ -12,7 +12,7 @@ const FrontOfficeComponent = () => {
     {
       title: "Do you have tinnitus that is constant?",
       content:
-        "Most people will know if their tinnitus is constant or not.  If they don’t, they apparently are not overly conscious of it. It may indicate that it is not a significant problem, even if it is a chronic condition.  This will give insight to the amount of time they pay attention to it.",
+        "Most people will know if their tinnitus is constant or not.  If they dont, they apparently are not overly conscious of it. It may indicate that it is not a significant problem, even if it is a chronic condition.  This will give insight to the amount of time they pay attention to it.",
       possibleAnswers: ["Yes", "No"],
     },
     {
