@@ -32,7 +32,7 @@ const TeamPage = () => {
     <BaseLayoutComponent>
       <Navbar />
       {/* Hero Section */}
-      <section className="relative bg-blue-teal-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32 text-white">
+      <section className="relative bg-blue-teal-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Our Team</h1>
           <p className="text-xl">Meet the experts behind Tinnitus Counseling Tool</p>

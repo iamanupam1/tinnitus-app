@@ -5,76 +5,63 @@ import { Navbar } from "../component/base/navbar";
 import FooterComponent from "../component/base/footer";
 import Accordion from "../component/questionnaire-assessment/accordion";
 import AssessmentSection from "../component/questionnaire-assessment/assessment-section";
+import Link from "next/link";
+import { QUESTION_PARENT_LIST } from "../../enum";
 
 const QuestionnaireAssessmentPage = () => {
-  const frontOffice = [
-    {
-      title: "Are you calling today about a tinnitus or hearing problem?",
-      content:
-        "This will verify that they are coming in the “tinnitus” door with tinnitus as the main concern.",
-      possibleAnswers: ["Tinnitus", "Hearing", "Both"],
-    },
-    {
-      title: "Do you have tinnitus that is constant?",
-      content:
-        "Most people will know if their tinnitus is constant or not.  If they don’t, they apparently are not overly conscious of it. It may indicate that it is not a significant problem, even if it is a chronic condition.  This will give insight to the amount of time they pay attention to it.",
-      possibleAnswers: ["Yes", "No"],
-    },
-    {
-      title: "How long have you had tinnitus?",
-      content:
-        "If the patient has had tinnitus <3 months, it may resolve on its own.  If they have had it for 3 months or longer, it is more likely to be a permanent irreversible condition and indicate a need for intervention. ",
-      possibleAnswers: ["<3 months", " >3 months"],
-    },
-    {
-      title: "How much of a problem is your tinnitus?",
-      content:
-        "This addresses the emotional component of tinnitus which will help to determine the extent of the problem and the need for a referral to a Fellow Member clinic. ",
-      possibleAnswers: [
-        "No problem (0)",
-        "Small problem (2)",
-        "Moderate problem (4)",
-        "Big problem (10)",
-      ],
-    },
-    {
-      title: "Does the tinnitus affect your sleep?",
-      content:
-        "This gives insight to the degree of affect tinnitus has on their life.   ",
-      possibleAnswers: [
-        "Never (0)",
-        "Rarely (2)",
-        "Some of the time (4)",
-        "Often (6)",
-        "Always (10)",
-      ],
-    },
-    {
-      title: "Do you find everyday sounds uncomfortable?",
-      content:
-        "The patient report of sound sensitivity is not indicative in determining the presence of hyperacusis. However, when a perspective patient strongly admits to avoiding everyday sounds, he should be referred to a Fellow Member clinic.   ",
-      possibleAnswers: [" Yes (10)", "No (0)"],
-    },
-    {
-      title:
-        "Were you referred to our clinic, or, how did you find out about us?",
-      content:
-        "This provides the opportunity to evaluate ongoing marketing and determine its effectiveness.",
-    },
-  ];
 
-  const frontOfficeExcerpt="The total score from questions 4, 5 and 6 are added and if the score of 10 or greater will indicate that the patient needs to have a complete tinnitus evaluation in a Fellow Member Tinnitus Clinic. "
+  const CardComponent = ({ data }) => {
+    return (
+      <div className="bg-gradient-to-br from-white to-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 ease-in-out transform">
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-2xl font-bold text-gray-800 leading-tight">
+              {data.title}
+            </h3>
+          </div>
+          <p className="text-gray-600 text-base leading-relaxed mb-4">
+            {data.content}
+          </p>
+          <div className="flex items-center justify-between">
+            <Link
+              className="inline-flex items-center px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-md hover:bg-teal-600 transition-colors duration-300 ease-in-out"
+              href={`/questionnaire-assessment/${data.slug}`}
+            >
+              View Questionnaires
+              <svg
+                className="ml-2 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const frontOfficeExcerpt =
+    "The total score from questions 4, 5 and 6 are added and if the score of 10 or greater will indicate that the patient needs to have a complete tinnitus evaluation in a Fellow Member Tinnitus Clinic. ";
 
   return (
     <BaseLayoutComponent>
       <Navbar />
       {/* Hero Section */}
-      <section className="relative bg-blue-teal-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32 text-white">
+      <section className="relative bg-blue-teal-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">
             Questionnaires and Assessments
           </h1>
-          <p className="text-xl">Our Library</p>
+          <p className="text-xl">Tailored Questionnaires to Guide Treatment and Care Plans</p>
         </div>
       </section>
       <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-10">
@@ -89,20 +76,11 @@ const QuestionnaireAssessmentPage = () => {
             patient&apos;s experience and aids in effective treatment planning.
           </p>
         </div>
-        <div className="bg-gray-100 px-8 py-4">
-          <h3 className="text-xl leading-tight font-bold">
-            Front Office: Initial Telephone Screening Interview
-          </h3>
-          <p className="mt-2 leading-relaxed text-justify">
-            The purpose of the initial screening interview is to create a
-            positive and sincere impression with the patient acknowledging the
-            tinnitus concern and the ability of your practice to help them with
-            their problem. It also creates the opportunity to begin the
-            determination of the extent of their problem, assistance in
-            scheduling or referral, and the opportunity to evaluate marketing
-            effectiveness
-          </p>
-          <Accordion items={frontOffice} excerpt={frontOfficeExcerpt} openDefault showMapperText/>
+
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+          {QUESTION_PARENT_LIST.map((item) => (
+            <CardComponent key={item.title} data={item} />
+          ))}
         </div>
       </section>
       <AssessmentSection />

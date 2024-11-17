@@ -9,6 +9,7 @@ const AccordionItem = ({
   onToggle,
   index,
   showMapperText,
+  CustomComponent
 }) => {
   return (
     <div className="mb-4 border border-gray-200 rounded-lg shadow-sm overflow-hidden">
@@ -65,6 +66,7 @@ const AccordionItem = ({
           {content && (
             <p className="text-gray-700 leading-relaxed">{content}</p>
           )}
+          {CustomComponent && <CustomComponent />}
         </div>
       )}
     </div>
