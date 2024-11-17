@@ -63,7 +63,7 @@ const FrontOfficeComponent = () => {
         <p className="mt-2 leading-relaxed text-justify">
           The purpose of the initial screening interview is to establish a
           positive and sincere impression with the patient, acknowledging their
-          tinnitus concerns and demonstrating your practice's ability to assist
+          tinnitus concerns and demonstrating your practices ability to assist
           with their issue. It also provides an opportunity to start assessing
           the severity of their problem, offer help with scheduling or
           referrals, and evaluate the effectiveness of your marketing efforts.
