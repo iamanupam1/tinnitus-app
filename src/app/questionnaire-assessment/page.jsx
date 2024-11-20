@@ -1,9 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import BaseLayoutComponent from "../component/base/base-layout";
 import { Navbar } from "../component/base/navbar";
 import FooterComponent from "../component/base/footer";
-import Accordion from "../component/questionnaire-assessment/accordion";
 import AssessmentSection from "../component/questionnaire-assessment/assessment-section";
 import Link from "next/link";
 import { QUESTION_PARENT_LIST } from "../../enum";

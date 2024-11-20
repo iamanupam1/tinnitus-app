@@ -1,83 +1,84 @@
-'use client'
-import React, { useState } from 'react';
-import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
-import "@cyntler/react-doc-viewer/dist/index.css";
+"use client";
+import React, { useState } from "react";
+import {
+  Download,
+  FileText,
+  Eye,
+  Loader2,
+} from "lucide-react";
 
 const DocxViewer = ({ documents }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeDocIndex, setActiveDocIndex] = useState(0);
+  const [loading, setLoading] = useState({});
 
-  const openModal = (index) => {
-    setActiveDocIndex(index);
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-  };
+  if (!documents || documents.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center h-64 bg-gray-50 rounded-xl">
+        <FileText className="h-16 w-16 text-gray-400 mb-4" aria-hidden="true" />
+        <p className="text-lg text-gray-500">No documents available</p>
+      </div>
+    );
+  }
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    document.body.style.overflow = 'unset'; // Restore scrolling when modal is closed
-  };
-
-  const downloadDocument = (doc) => {
-    const link = document.createElement('a');
-    link.href = doc.uri;
-    link.download = doc.fileName || 'document';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownload = async (doc) => {
+    setLoading((prev) => ({ ...prev, [doc.fileName]: true }));
+    try {
+      const { url, fileName } = doc;
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Download failed:", error);
+    } finally {
+      setLoading((prev) => ({ ...prev, [doc.fileName]: false }));
+    }
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Document Viewer</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {documents.map((doc, index) => (
-          <div key={index} className="border rounded-lg p-4 shadow-md">
-            <h3 className="text-lg font-semibold mb-2">{doc.fileName || `Document ${index + 1}`}</h3>
-            <div className="flex space-x-2">
-              <button
-                onClick={() => openModal(index)}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              >
-                View
-              </button>
-              <button
-                onClick={() => downloadDocument(doc)}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Download
-              </button>
+    <div className="w-full p-2 space-y-6">
+      <h2 className="text-xl font-bold text-gray-900">Additional Documents</h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {documents.map((doc) => (
+          <div
+            key={doc.fileName + doc.uri}
+            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+          >
+            <div className="p-6 bg-gradient-to-br from-blue-200 to-teal-100 flex items-center justify-center">
+              <FileText
+                className="h-16 w-16 text-teal-800"
+                aria-hidden="true"
+              />
+            </div>
+
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-gray-900 truncate mb-4">
+                {doc.fileName}
+              </h3>
+
+              <div className="flex space-x-2">
+                <button
+                  className="flex-1 flex items-center justify-center px-4 py-2 rounded-lg bg-teal-600 text-white hover:bg-teal-800 transition-colors duration-200"
+                  onClick={() => handleDownload(doc)}
+                  disabled={loading[doc.fileName]}
+                  aria-label={`Download ${doc.fileName}`}
+                >
+                  {loading[doc.fileName] ? (
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                  ) : (
+                    <Download className="h-5 w-5 mr-2" />
+                  )}
+                  Download
+                </button>
+              </div>
             </div>
           </div>
         ))}
       </div>
-
-      {/* Custom Tailwind CSS Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              {/* <h2 className="text-2xl font-bold">
-                {documents[activeDocIndex].fileName || `Document ${activeDocIndex + 1}`}
-              </h2> */}
-              <button
-                onClick={closeModal}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </button>
-            </div>
-            <div className="h-[calc(100vh-200px)]">
-              <DocViewer 
-                documents={[documents[activeDocIndex]]} 
-                pluginRenderers={DocViewerRenderers} 
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

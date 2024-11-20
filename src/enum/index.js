@@ -8,17 +8,15 @@ export const NAV_LINKS = [
   { path: "/", label: "Home", sub_link: null },
   {
     path: "#",
-    label: "Category",
+    label: "Sections",
     sub_link: [
       { path: "/questionnaire-assessment", label: "Questionnaires and Assessments" },
       { path: "/education", label: "Education Information" },
       { path: "/treatment", label: "Treatment & Counseiling" },
-      { path: "/treatment", label: "Resource Acknowledgement" },
     ],
   },
+  { path: "/resource-acknowledgement", label: "Resource Acknowledgement", sub_link: null },
   { path: "/team", label: "Team", sub_link: null },
-  { path: "/about", label: "About", sub_link: null },
-  { path: "/contact", label: "Contact", sub_link: null },
 ];
 
 export const QUESTION_PARENT_LIST = [

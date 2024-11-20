@@ -21,6 +21,7 @@ import withPermission from "./hocs/withPermission";
 import { Navbar } from "./component/base/navbar";
 import { HeroSection } from "./component/home/hero-section";
 import FooterComponent from "./component/base/footer";
+import Link from "next/link";
 
 const BlogPostCard = ({ title, excerpt }) => (
   <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -70,18 +71,20 @@ const FlexBlogSection = () => {
   );
 };
 
-const CategoryBox = ({ icon: Icon, title, description }) => (
+const CategoryBox = ({ icon: Icon, title, description, link }) => (
   <div className="p-6 rounded-lg shadow-md flex flex-col items-center transition duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer hover:shadow-xl">
-    <Icon
-      size={48}
-      className="mb-4 text-blue-400 transition-colors duration-300 group-hover:text-blue-300"
-    />
-    <h4 className="text-xl font-semibold mb-2 transition-colors duration-300 group-hover:text-white">
-      {title}
-    </h4>
-    <p className="text-center text-gray-400 transition-colors duration-300 group-hover:text-gray-200">
-      {description}
-    </p>
+    <Link href={link} className="text-center">
+      <Icon
+        size={48}
+        className="mb-4 text-blue-400 transition-colors duration-300 group-hover:text-blue-300 mx-auto"
+      />
+      <h4 className="text-xl font-semibold mb-2 transition-colors duration-300 group-hover:text-white">
+        {title}
+      </h4>
+      <p className="text-center text-gray-400 transition-colors duration-300 group-hover:text-gray-200">
+        {description}
+      </p>
+    </Link>
   </div>
 );
 
@@ -130,22 +133,25 @@ const Homepage = () => {
 
       {/* start category */}
       <section className="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32">
-        <h3 className="text-2xl font-bold mb-6">Explore our Categories</h3>
+        <h3 className="text-2xl font-bold mb-6">Explore our Sections</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <CategoryBox
             icon={ClipboardList}
             title="Questionnaires and Assessments"
             description="Evaluate tinnitus impact and track progress"
+            link="/questionnaire-assessment"
           />
           <CategoryBox
             icon={BookOpen}
             title="Educational Information"
             description="Learn about tinnitus causes, effects, and management"
+            link="#"
           />
           <CategoryBox
             icon={Stethoscope}
             title="Tinnitus Treatment & Counseling"
             description="Explore treatment options and counseling techniques"
+            link="#"
           />
         </div>
       </section>
