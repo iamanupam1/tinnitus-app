@@ -12,7 +12,7 @@ export const NAV_LINKS = [
     sub_link: [
       { path: "/questionnaire-assessment", label: "Questionnaires and Assessments" },
       { path: "/education-information", label: "Education Information" },
-      { path: "/treatment-counseiling", label: "Treatment & Counseiling" },
+      { path: "/treatment-counseling", label: "Treatment & Counseling" },
     ],
   },
   { path: "/resource-acknowledgement", label: "Resource Acknowledgement", sub_link: null },

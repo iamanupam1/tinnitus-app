@@ -116,6 +116,34 @@ const EducationalInformationPage = () => {
             </Link>
           </div>
         </section>
+
+        {/* Hyperacusis Section */}
+        <section className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="md:w-1/2">
+            <Image
+              width={500}
+              height={500}
+              src="/images/tinnitus photo woman .jpg"
+              alt="Tinnitus Impact"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="md:w-1/2 p-8">
+            <h3 className="text-2xl font-bold text-purple-800 mb-4">
+              Hyperacusis
+            </h3>
+            <p className="text-gray-700 mb-6">
+              An abnormal sensitivity to everyday sounds, leading to discomfort
+              or pain.
+            </p>
+            <Link
+              href="/education-information/tinnitus"
+              className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors"
+            >
+              Learn More
+            </Link>
+          </div>
+        </section>
       </div>
       <FooterComponent />
     </BaseLayoutComponent>
