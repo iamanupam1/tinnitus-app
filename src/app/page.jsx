@@ -1,23 +1,13 @@
+'use client'
 import Image from "next/image";
 import React from "react";
 import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Youtube,
-  Phone,
-  MapPin,
-  Clock,
-  Mail,
-  Menu,
   ClipboardList,
   BookOpen,
   Stethoscope,
-  FileText,
   ArrowRight,
 } from "lucide-react";
 import BaseLayoutComponent from "./component/base/base-layout";
-import withPermission from "./hocs/withPermission";
 import { Navbar } from "./component/base/navbar";
 import { HeroSection } from "./component/home/hero-section";
 import FooterComponent from "./component/base/footer";
@@ -88,12 +78,6 @@ const CategoryBox = ({ icon: Icon, title, description, link }) => (
   </div>
 );
 
-const user = {
-  _id: "454654",
-  fullName: "Anupam Dhakal",
-  userRoles: ["admin", "normal"],
-  createdDate: "2024/02/14",
-};
 const Homepage = () => {
   return (
     <BaseLayoutComponent>
@@ -173,4 +157,4 @@ const Homepage = () => {
   );
 };
 
-export default withPermission(Homepage, user);
+export default Homepage;

@@ -15,8 +15,7 @@ export const NAV_LINKS = [
       { path: "/treatment-counseling", label: "Treatment & Counseling" },
     ],
   },
-  { path: "/resource-acknowledgement", label: "Resource Acknowledgement", sub_link: null },
-  { path: "/team", label: "Team", sub_link: null },
+  { path: "/resource-acknowledgement", label: "Resource Acknowledgement", sub_link: null }
 ];
 
 export const QUESTION_PARENT_LIST = [

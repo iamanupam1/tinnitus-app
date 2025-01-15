@@ -12,8 +12,10 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { NAV_LINKS } from "../../../enum";
+import useFirebaseLogout from "../../hooks/use-logout";
 
 export const Navbar = () => {
+  const { logout } = useFirebaseLogout();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
 
@@ -130,6 +132,12 @@ export const Navbar = () => {
                   )}
                 </li>
               ))}
+              <li
+                className="md:ml-6 text-white hover:cursor-pointer hover:text-red-800"
+                onClick={logout}
+              >
+                Logout
+              </li>
             </ul>
           </nav>
         </div>

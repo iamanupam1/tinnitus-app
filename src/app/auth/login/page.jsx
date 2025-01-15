@@ -1,40 +1,34 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Mail, Lock } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import useFirebaseLogin from "../../hooks/use-login";
+import { useAuth } from "../../context/AuthContext";
 
 const LoginPage = () => {
+  const { user } = useAuth();
   const router = useRouter();
+
+  useEffect(() => {
+    if (user) {
+      router.push("/");
+    }
+  }, [user]);
+
+  const { login, loading, error } = useFirebaseLogin();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!formData.email || !formData.password) {
-      setError("Please fill in all fields");
-      return;
-    }
-
     try {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          email: formData.email,
-          isAuthenticated: true,
-          loginTime: new Date().toISOString(),
-        })
-      );
-      setError("");
-      router.push("/");
-    } catch (err) {
-      setError("Error logging in. Please try again.");
-      console.error("Login error:", err);
+      await login(formData.email, formData.password);
+    } catch (error) {
+      console.error("Login failed:", error);
     }
   };
 
