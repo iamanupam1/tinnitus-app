@@ -12,7 +12,7 @@ const DepressionQuestionnairesComponent = () => {
     phq: [
       {
         fileName: "PHQ Patient Health Questionnaire",
-        uri: "/docsdepression/PHQ Patient Health Questionnaire.pdf",
+        uri: "/docs/depression/PHQ Patient Health Questionnaire.pdf",
       },
     ],
     beck: [

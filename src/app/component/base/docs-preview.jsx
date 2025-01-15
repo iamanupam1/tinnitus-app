@@ -9,6 +9,7 @@ import {
 
 const DocxViewer = ({ documents }) => {
   const [loading, setLoading] = useState({});
+  const [downloadStatus, setDownloadStatus] = useState('');
 
   if (!documents || documents.length === 0) {
     return (
@@ -22,18 +23,25 @@ const DocxViewer = ({ documents }) => {
   const handleDownload = async (doc) => {
     setLoading((prev) => ({ ...prev, [doc.fileName]: true }));
     try {
-      const { url, fileName } = doc;
-      const response = await fetch(url);
-      const blob = await response.blob();
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const response = await fetch(`/api/download?filePath=${doc.uri}`);
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = doc.uri.split('/').pop();
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        setDownloadStatus('Download successful');
+      } else {
+        setDownloadStatus('Download failed');
+      }
     } catch (error) {
-      console.error("Download failed:", error);
-    } finally {
+      setDownloadStatus('Download failed');
+      console.error('Download error:', error);
+    }finally {
       setLoading((prev) => ({ ...prev, [doc.fileName]: false }));
     }
   };
