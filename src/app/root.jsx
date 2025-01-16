@@ -1,16 +1,18 @@
 "use client";
+
 import { useRouter } from "next/navigation";
+import { useAuth } from "./context/AuthContext";
 import { useEffect } from "react";
 
 export const Root = ({ children }) => {
   const router = useRouter();
+  const { user } = useAuth();
 
   useEffect(() => {
-    const userData = localStorage.getItem("user");
-    if (!userData) {
+    if (!user) {
       router.push("/auth/login");
     }
-  }, [router]);
+  }, [user]);
 
   return <>{children}</>;
 };
