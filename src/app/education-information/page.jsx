@@ -119,15 +119,6 @@ const EducationalInformationPage = () => {
 
         {/* Hyperacusis Section */}
         <section className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="md:w-1/2">
-            <Image
-              width={500}
-              height={500}
-              src="/images/tinnitus photo woman .jpg"
-              alt="Tinnitus Impact"
-              className="w-full h-full object-cover"
-            />
-          </div>
           <div className="md:w-1/2 p-8">
             <h3 className="text-2xl font-bold text-purple-800 mb-4">
               Hyperacusis
@@ -142,6 +133,15 @@ const EducationalInformationPage = () => {
             >
               Learn More
             </Link>
+          </div>
+          <div className="md:w-1/2">
+            <Image
+              width={500}
+              height={500}
+              src="/images/hyper.png"
+              alt="Tinnitus Impact"
+              className="w-full h-full object-cover"
+            />
           </div>
         </section>
       </div>
