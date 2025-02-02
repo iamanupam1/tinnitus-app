@@ -128,7 +128,7 @@ const EducationalInformationPage = () => {
               or pain.
             </p>
             <Link
-              href="/education-information/tinnitus"
+              href="/education-information/hyperacusis"
               className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors"
             >
               Learn More
