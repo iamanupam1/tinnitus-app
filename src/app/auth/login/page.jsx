@@ -36,13 +36,9 @@ const LoginPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-800 to-teal-700">
       <div className="min-h-screen backdrop-blur-sm backdrop-filter bg-purple-900/20 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          {/* Logo placeholder with glassmorphism effect */}
-          <div className="w-24 h-24 mx-auto rounded-lg bg-white/20 backdrop-blur-sm shadow-xl flex items-center justify-center border border-white/30">
-            <div className="text-white text-2xl font-bold">TS</div>
-          </div>
 
           <h2 className="mt-6 text-center text-3xl font-bold text-white">
-            Sign in to Tinnitus Support
+            Sign in to Tinnitus Counseling Tool
           </h2>
         </div>
 

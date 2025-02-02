@@ -198,7 +198,7 @@ const AuditoryInformationPage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-teal-500 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
+      <section className="relative bg-gradient-to-r from-[#502888] to-[#2E847C] px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-6">
             Anatomy of Auditory Systems
@@ -207,9 +207,9 @@ const AuditoryInformationPage = () => {
       </section>
 
       {/* Introduction Section */}
-      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-gray-100">
+      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-[#502888] bg-opacity-10">
         <div className="max-w-[1800px] mx-auto">
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-[#000000] leading-relaxed">
             Providing educational information is crucial in the treatment of
             tinnitus patients as it helps them understand their condition,
             manage expectations, and engage effectively in therapeutic
