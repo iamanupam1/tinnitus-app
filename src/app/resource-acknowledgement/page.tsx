@@ -6,15 +6,15 @@ import FooterComponent from "../component/base/footer";
 const ResourceAcknowledgementPage = () => {
   const ResearcherCard = ({ name, contributions }) => (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <div className="bg-teal-700 p-4">
+      <div className="bg-[#2E847C] p-4">
         <h3 className="text-xl font-bold text-white">{name}</h3>
       </div>
       <div className="p-6">
         <ul className="space-y-2">
           {contributions.map((contribution, idx) => (
             <li key={idx} className="flex items-start">
-              <span className="text-teal-500 mr-2">•</span>
-              <span className="text-gray-700">{contribution}</span>
+              <span className="text-[#502888] mr-2">•</span>
+              <span className="text-[#000000]">{contribution}</span>
             </li>
           ))}
         </ul>
@@ -121,7 +121,7 @@ const ResourceAcknowledgementPage = () => {
   return (
     <BaseLayoutComponent>
       <Navbar />
-      <section className="relative bg-gradient-to-r from-blue-600 to-teal-500 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
+      <section className="relative bg-gradient-to-r from-[#502888] to-[#2E847C] px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-6">Resource Acknowledgement</h1>
           <p className="text-xl max-w-2xl mx-auto">
@@ -130,7 +130,7 @@ const ResourceAcknowledgementPage = () => {
           </p>
         </div>
       </section>
-      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-gray-100">
+      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-[#502888] bg-opacity-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {researchers.map((researcher, index) => (
             <ResearcherCard key={index} {...researcher} />

@@ -13,16 +13,16 @@ const QuestionnaireAssessmentPage = () => {
       <div className="bg-gradient-to-br from-white to-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 ease-in-out transform">
         <div className="p-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-2xl font-bold text-gray-800 leading-tight">
+            <h3 className="text-2xl font-bold text-[#502888] leading-tight">
               {data.title}
             </h3>
           </div>
-          <p className="text-gray-600 text-base leading-relaxed mb-4">
+          <p className="text-[#000000] text-base leading-relaxed mb-4">
             {data.content}
           </p>
           <div className="flex items-center justify-between">
             <Link
-              className="inline-flex items-center px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-md hover:bg-teal-600 transition-colors duration-300 ease-in-out"
+              className="inline-flex items-center px-4 py-2 bg-[#2E847C] text-white text-sm font-medium rounded-md hover:bg-[#3F5682] transition-colors duration-300 ease-in-out"
               href={`/questionnaire-assessment/${data.slug}`}
             >
               View Questionnaires
@@ -54,7 +54,7 @@ const QuestionnaireAssessmentPage = () => {
     <BaseLayoutComponent>
       <Navbar />
       {/* Hero Section */}
-      <section className="relative bg-blue-teal-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
+      <section className="relative bg-gradient-to-r from-[#502888] to-[#2E847C] px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">
             Questionnaires and Assessments
@@ -64,10 +64,10 @@ const QuestionnaireAssessmentPage = () => {
       </section>
       <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-10">
         <div className="mb-5">
-          <h2 className="text-3xl leading-tight font-bold mt-4">
+          <h2 className="text-3xl leading-tight font-bold mt-4 text-[#502888]">
             Questionnaires
           </h2>
-          <p className="mt-2 leading-relaxed text-justify">
+          <p className="mt-2 leading-relaxed text-justify text-[#000000]">
             When choosing a questionnaire for tinnitus patients, we consider
             factors such as the specific symptoms, the impact on daily life, and
             the purpose of the assessment to ensure it accurately captures the
