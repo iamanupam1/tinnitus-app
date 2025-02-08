@@ -5,11 +5,15 @@ import {
   FileText,
   Eye,
   Loader2,
+  X
 } from "lucide-react";
+import DocsViewer from './docs-viewer'
 
 const DocxViewer = ({ documents }) => {
   const [loading, setLoading] = useState({});
   const [downloadStatus, setDownloadStatus] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedDoc, setSelectedDoc] = useState(null);
 
   if (!documents || documents.length === 0) {
     return (
@@ -46,8 +50,13 @@ const DocxViewer = ({ documents }) => {
     }
   };
 
+  const handleView = (doc) => {
+    setSelectedDoc(doc);
+    setModalOpen(true);
+  };
+
   return (
-    <div className="w-full p-2 space-y-6">
+    <div className={`w-full p-2 ${modalOpen ? "" : "space-y-6"}`}>
       <h2 className="text-xl font-bold text-gray-900">Additional Documents</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -82,11 +91,36 @@ const DocxViewer = ({ documents }) => {
                   )}
                   Download
                 </button>
+                <button
+                  className="flex-1 flex items-center justify-center px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-800 transition-colors duration-200"
+                  onClick={() => handleView(doc)}
+                  aria-label={`View ${doc.fileName}`}
+                >
+                  <Eye className="h-5 w-5 mr-2" />
+                  View
+                </button>
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      {modalOpen && selectedDoc && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg p-8 max-w-3xl w-full max-h-[100vh] overflow-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold">{selectedDoc.fileName}</h2>
+              <button
+                onClick={() => setModalOpen(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            <DocsViewer path={selectedDoc.uri}/>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

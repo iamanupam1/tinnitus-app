@@ -110,7 +110,7 @@ const LimbicInformationPage = () => {
       ],
     },
     {
-      title: "Limibic System",
+      title: "Limbic System",
       description:
         "A detailed anatomical illustration of the human brain highlighting the limbic system, which is responsible for emotions, memory, and motivation. Key structures such as the amygdala, hippocampus, and hypothalamus are prominently featured.",
       images: [
