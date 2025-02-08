@@ -21,14 +21,28 @@ const EducationalInformationPage = () => {
       </section>
 
       {/* Introduction Section */}
-      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-[#502888] bg-opacity-10">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-lg text-[#000000] leading-relaxed">
-            Providing educational information is crucial in the treatment of
-            tinnitus patients as it helps them understand their condition,
-            manage expectations, and engage effectively in therapeutic
-            interventions.
-          </p>
+      <section className="container mx-auto p-6">
+        <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+          <div className="md:w-1/2 relative">
+            <Image
+              width={500}
+              height={500}
+              src="/images/counseling photo.jpg"
+              alt="Auditory System Anatomy"
+              className="w-full h-full object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          </div>
+
+          <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+            <p className="text-gray-700 text-lg leading-relaxed mb-8">
+              Providing educational information is crucial in the treatment of
+              tinnitus patients as it helps them understand their condition,
+              manage expectations, and engage effectively in therapeutic
+              interventions.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -101,9 +115,7 @@ const EducationalInformationPage = () => {
             />
           </div>
           <div className="md:w-1/2 p-8">
-            <h3 className="text-2xl font-bold text-[#502888] mb-4">
-              Tinnitus
-            </h3>
+            <h3 className="text-2xl font-bold text-[#502888] mb-4">Tinnitus</h3>
             <p className="text-[#000000] mb-6">
               A condition characterized by the perception of ringing or other
               sounds in the ears, often linked to auditory system dysfunction.

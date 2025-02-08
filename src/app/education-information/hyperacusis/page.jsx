@@ -121,8 +121,24 @@ const HyperacusisInformationPage = () => {
     },
     {
       title: "Causes of Hyperacusis",
+      content: [
+        "tinnitus",
+        "Bell's palsy",
+        "Lyme Disease",
+        " Asberger’s",
+        "Williams Syndrome",
+        " Ramsay Hunt Syndrome",
+        "Stapedectomy",
+        "Perilymphatic fistula",
+        "Head injury",
+        "Migraine ",
+        "depression",
+        "withdrawal from benzodiazepines",
+        "increased Cerebral Spinal Fluid (CSF) pressure",
+        "Addison's disease",
+      ],
       description:
-        "Medical conditions previously linked to decreased sound tolerance include: tinnitus, Bell's palsy, Lyme Disease, Asberger’s,  Williams Syndrome, Ramsay Hunt Syndrome, stapedectomy, perilymphatic fistula, head injury, migraine, depression, withdrawal from benzodiazepines, increased Cerebral Spinal Fluid (CSF) pressure and Addison's disease. ",
+        "Medical conditions previously linked to decreased sound tolerance include:",
       docs: [
         {
           fileName:
@@ -162,10 +178,6 @@ const HyperacusisInformationPage = () => {
         {
           fileName: "Exercises for TTTS",
           uri: "/docs/hyperacusis/Exercises for TTTS.docx",
-        },
-        {
-          fileName: "Hyperacusis and Lyme Disease",
-          uri: "/docs/hyperacusis/Hyperacusis and Lyme Disease.docx",
         },
         {
           fileName: "Sound Generator Care and Usage",
@@ -238,7 +250,9 @@ const HyperacusisInformationPage = () => {
                 {section.content?.map((item, i) => (
                   <li key={i} className="flex items-start space-x-2">
                     <span className="text-teal-700 mt-1">•</span>
-                    <span className="text-purple-900/80">{item}</span>
+                    <span className="text-purple-900/80 capitalize">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>

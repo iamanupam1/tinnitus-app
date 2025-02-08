@@ -45,7 +45,9 @@ const AssessmentSection = () => {
     {
       title: "Residual Inhibition",
       possibleAnswers: [
-        "Protocol for Residual Inhibition:  (to see reduced intensity of tinnitus following presentation of certain sounds) – can show tinnitus becomes softer or partially stops) ",
+        "Protocol for Residual Inhibition: (to see reduced intensity of tinnitus following presentation of certain sounds) – can show tinnitus becomes softer or partially stops)",
+        "WN presented at MML plus 10dB for 60 seconds",
+        "Time the effect of inhibition until they hear the tinnitus again – (seconds and minutes)",
       ],
     },
   ];

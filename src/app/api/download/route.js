@@ -5,8 +5,6 @@ import { join } from 'path';
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const apiFilePath = searchParams.get('filePath');
-
-  console.log("apiFilePath", apiFilePath);
   
   if (!apiFilePath) {
     return NextResponse.json({ error: 'No file path provided' }, { status: 400 });
@@ -14,9 +12,6 @@ export async function GET(request) {
 
   const filePath = join(process.cwd(), 'public', apiFilePath);
   const fileName = apiFilePath.split('/').pop();
-
-  console.log("filePath",filePath);
-  console.log("fileName",fileName);
 
   try {
     const fileStream = createReadStream(filePath);
