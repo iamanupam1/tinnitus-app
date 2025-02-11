@@ -1,7 +1,15 @@
 import React from "react";
 import Accordion from "./accordion";
+import DocsViewer from "../base/docs-viewer";
+import DocxViewer from "../base/docs-preview";
 
 const FrontOfficeComponent = () => {
+  const allDocs = [
+    {
+      fileName: "Initial Telephone Screening Interview Form (description)",
+      uri: "/docs/tinnitus/Initial Telephone Screening Interview Form (description).docx",
+    },
+  ];
   const frontOffice = [
     {
       title: "Are you calling today about a tinnitus or hearing problem?",
@@ -69,7 +77,10 @@ const FrontOfficeComponent = () => {
           referrals, and evaluate the effectiveness of your marketing efforts.
         </p>
       </div>
-      <Accordion items={frontOffice} openDefault/>
+      <Accordion items={frontOffice} openDefault />
+      <div className="py-5">
+        <DocxViewer documents={allDocs} />
+      </div>
     </section>
   );
 };
