@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import BaseLayoutComponent from "../../component/base/base-layout";
 import { Navbar } from "../../component/base/navbar";
@@ -62,7 +61,7 @@ const Modal = ({ isOpen, onClose, children }) => {
   );
 };
 
-const ImageCard = ({ src, alt, caption }) => {
+const ImageCard = ({ src, alt, caption, content }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -81,7 +80,8 @@ const ImageCard = ({ src, alt, caption }) => {
           />
         </div>
         <div className="p-4">
-          <p className="text-sm text-gray-600 text-center">{caption}</p>
+          <p className="text-sm text-gray-600 text-center font-medium">{caption}</p>
+          <p className="text-sm text-gray-600 text-center line-clamp-2">{content}</p>
         </div>
       </div>
 
@@ -90,7 +90,8 @@ const ImageCard = ({ src, alt, caption }) => {
           <Image src={src} alt={alt} fill className="object-contain" priority />
         </div>
         <div className="bg-white p-4">
-          <p className="text-sm text-gray-600 text-center">{caption}</p>
+          <p className="text-md text-gray-600 text-center font-medium">{caption}</p>
+          <p className="text-md text-gray-600 text-center">{content}</p>
         </div>
       </Modal>
     </>
@@ -101,13 +102,6 @@ const TinnitusInformationPage = () => {
   const sections = [
     {
       title: "Medications Associated with Tinnitus",
-      images: [
-        {
-          src: "/images/tinnitus/Pills in hand photo.jpg",
-          alt: "Pills in hand photo",
-          caption: "Pills in hand photo",
-        },
-      ],
       docs: [
         {
           fileName: "TinnitusDrugList2013 (ID 2125)",
@@ -129,14 +123,18 @@ const TinnitusInformationPage = () => {
           caption: "Otosclerosis",
         },
         {
-          src: "/images/anatomy/inner/Outer and inner hair cell damaged and close up of damage.jpg",
-          alt: "Outer and inner hair cell damaged and close up of damage",
-          caption: "Outer and inner hair cell damaged and close up of damage",
-        },
-        {
           src: "/images/anatomy/inner/Outer hair cell bundle healthy.jpg",
           alt: "Outer hair cell bundle healthy",
           caption: "Outer hair cell bundle healthy",
+          content:
+            "To compensate for hearing loss, the brain increases neural activity in the auditory pathway through a process called central auditory gain. This involves the upregulation of neural activity and heightened sensitivity of auditory neurons to amplify weaker signals, which can result in the perception of tinnitus",
+        },
+        {
+          src: "/images/anatomy/inner/Outer and inner hair cell damaged and close up of damage.jpg",
+          alt: "Outer and inner hair cell damaged and close up of damage",
+          caption: "Outer and inner hair cell damaged and close up of damage",
+          content:
+            "To compensate for hearing loss, the brain increases neural activity in the auditory pathway through a process called central auditory gain. This involves the upregulation of neural activity and heightened sensitivity of auditory neurons to amplify weaker signals, which can result in the perception of tinnitus",
         },
       ],
       docs: [
@@ -191,11 +189,25 @@ const TinnitusInformationPage = () => {
               {section.description}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {section.images.map((image, imageIndex) => (
+              {section?.images?.map((image, imageIndex) => (
                 <ImageCard key={imageIndex} {...image} />
               ))}
             </div>
-            {section.docs ? <DocxViewer documents={section.docs} /> : null}
+            {section.docs ? (
+              <DocxViewer
+                documents={section.docs}
+                showTitle={
+                  section.title == "Medications Associated with Tinnitus"
+                    ? false
+                    : true
+                }
+                imageURL={
+                  section.title == "Medications Associated with Tinnitus"
+                    ? "/images/tinnitus/Pills in hand photo.jpg"
+                    : ""
+                }
+              />
+            ) : null}
           </div>
         </section>
       ))}

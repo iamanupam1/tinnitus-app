@@ -2,10 +2,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Accordion from "./accordion";
+import DocxViewer from "../base/docs-preview";
 
 const AssessmentSection = () => {
   const [activeTab, setActiveTab] = useState("MCL");
-
+  const allDocs = [
+    {
+      fileName: "Tinnitus Evaluation Protocols MML, Matching and Residual In",
+      uri: "/docs/tinnitus/Tinnitus Evaluation Protocols MML, Matching and Residual In.docx",
+    },
+  ];
   const assessmentItems = [
     {
       title: "Pitch Matching",
@@ -124,6 +130,9 @@ const AssessmentSection = () => {
         <div>
           <h3 className="text-2xl font-semibold mb-6">Protocols</h3>
           <Accordion items={assessmentItems} />
+          <div className="py-2">
+            <DocxViewer documents={allDocs} />
+          </div>
         </div>
       </div>
     </section>
