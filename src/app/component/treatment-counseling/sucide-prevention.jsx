@@ -90,7 +90,7 @@ const SuicidePreventionSection = () => {
           Neuromod Lenire
         </h4>
         <p className="mt-2 leading-relaxed text-justify">
-          Neuromod's Lenire is a non-invasive, FDA-approved medical device
+          Neuromod&apos;s Lenire is a non-invasive, FDA-approved medical device
           designed to treat tinnitus. It combines sound therapy with mild tongue
           stimulation to retrain the brain and reduce the perception of ringing
           in the ears. Lenire is backed by clinical trials and offers a
