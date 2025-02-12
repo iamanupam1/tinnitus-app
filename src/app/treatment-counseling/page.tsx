@@ -2,9 +2,11 @@ import React from "react";
 import BaseLayoutComponent from "../component/base/base-layout";
 import { Navbar } from "../component/base/navbar";
 import FooterComponent from "../component/base/footer";
-import OtherProtocolsSection from "../component/treatment-counseling/other-protocol";
-import OtherTinnitusSection from "../component/treatment-counseling/tinnitus-protocols";
+import SuicidePreventionSection from "../component/treatment-counseling/sucide-prevention";
+import AlternativeTreatmentSection from "../component/treatment-counseling/alternative-treatments";
 import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 const TreatmentCounselingPage = () => {
   const protocols = [
@@ -13,24 +15,28 @@ const TreatmentCounselingPage = () => {
       description:
         "A practice involving focused attention and awareness to help manage the stress and anxiety associated with tinnitus, promoting relaxation and well-being.",
       image: "/images/meditation.jpg",
+      link: "/treatment-counseling/mindful"
     },
     {
       title: "Sound Therapy",
       description:
         "An intervention that utilizes specific sound patterns, such as white noise, nature sounds, or customized sound frequencies, to mask tinnitus and provide relief.",
       image: "/images/candle in dark room.jpg",
+      link: "/treatment-counseling/sound"
     },
     {
       title: "Cognitive Behavioral Therapy",
       description:
         "A psychological treatment aimed at reshaping negative thought patterns and emotional responses to tinnitus, empowering patients with effective coping strategies.",
       image: "/images/CBT.png",
+      link: "/treatment-counseling/cbt"
     },
     {
       title: "Tinnitus Retraining Therapy",
       description:
         "A comprehensive approach combining sound therapy and counseling to retrain the brain, reducing the perception and emotional impact of tinnitus over time.",
       image: "/images/Neurophysiological model of tinnitus.jpg",
+      link: "/treatment-counseling/trt"
     },
   ];
 
@@ -103,14 +109,28 @@ const TreatmentCounselingPage = () => {
                 <h3 className="text-xl font-bold mb-3 text-[#502888]">
                   {protocol.title}
                 </h3>
-                <p className="text-[#000000]">{protocol.description}</p>
+                <p className="text-[#000000]">{protocol.description}</p>{" "}
+                <Link
+                  href={protocol.link}
+                  className="my-5 group flex items-center w-fit gap-2 rounded-lg border border-[#502888] bg-white px-4 py-2 text-sm font-medium text-[#502888] shadow-sm hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  View Detail
+                  <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
               </div>
             </div>
           ))}
         </div>
+        <Link
+          href="treatment-counseling/other-protocols"
+          className="my-5 group flex items-center w-fit gap-2 rounded-lg border border-[#502888] bg-white px-4 py-2 text-sm font-medium text-[#502888] shadow-sm hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          View Other Protocols & Strategies
+          <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
       </section>
-      <OtherProtocolsSection />
-      <OtherTinnitusSection />
+      <SuicidePreventionSection />
+      <AlternativeTreatmentSection />
       <FooterComponent />
     </BaseLayoutComponent>
   );
