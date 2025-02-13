@@ -1,39 +1,12 @@
-import { useEffect, useRef } from "react";
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+import "@cyntler/react-doc-viewer/dist/index.css";
 
-const DocsViewer = ({ path }) => {
-  const viewer = useRef(null);
+const DocsViewer = ({path}) => {
+  const docs = [
+    { uri: path },
+  ];
 
-  useEffect(() => {
-    if (!path) return;
-
-    import("@pdftron/webviewer").then(() => {
-      WebViewer(
-        {
-          path: "/lib",
-          initialDoc: path,
-          readOnly: true,
-          fullAPI: false,
-          enableRedaction: false,
-          enableMeasurement: false,
-          enableAnnotations: false,
-          enableFilePicker: false,
-          showLocalFilePicker: false,
-          hideTopBar: true,
-          hideToolbar: true,
-          hideAnnotationPanel: true,
-        },
-        viewer.current
-      );
-    });
-  }, [path]);
-
-  if (!path) return null;
-
-  return (
-    <div className="MyComponent">
-      <div className="webviewer" ref={viewer} style={{ height: "80vh" }}></div>
-    </div>
-  );
+  return <DocViewer documents={docs} pluginRenderers={DocViewerRenderers} />;
 };
 
 export default DocsViewer;
