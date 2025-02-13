@@ -1,29 +1,13 @@
-'use client'
+"use client";
 import Image from "next/image";
 import React from "react";
-import {
-  ClipboardList,
-  BookOpen,
-  Stethoscope,
-  ArrowRight,
-} from "lucide-react";
+import { ClipboardList, BookOpen, Stethoscope, ArrowRight } from "lucide-react";
 import BaseLayoutComponent from "./component/base/base-layout";
 import { Navbar } from "./component/base/navbar";
 import { HeroSection } from "./component/home/hero-section";
 import FooterComponent from "./component/base/footer";
+import ContactForm from "./component/home/contact-form";
 import Link from "next/link";
-
-const BlogPostCard = ({ title, excerpt }) => (
-  <div className="bg-white rounded-lg shadow-md overflow-hidden border border-[#502888] hover:shadow-xl transition-shadow duration-300">
-    <div className="p-6">
-      <h4 className="text-xl font-semibold mb-2 text-[#502888]">{title}</h4>
-      <p className="text-[#000000] mb-4">{excerpt}</p>
-      <button className="text-[#2E847C] font-medium flex items-center hover:text-[#3F5682] transition-colors">
-        Read more <ArrowRight className="ml-2 h-4 w-4" />
-      </button>
-    </div>
-  </div>
-);
 
 const FlexBlogSection = () => {
   return (
@@ -41,17 +25,7 @@ const FlexBlogSection = () => {
           </div>
         </div>
         <div className="w-full h-full md:w-1/2">
-          <h3 className="text-3xl font-bold mb-8 text-gray-500">Latest Blog Posts</h3>
-          <div className="space-y-8">
-            <BlogPostCard
-              title="Understanding Tinnitus: Causes and Effects"
-              excerpt="Explore the various factors that can lead to tinnitus and how it impacts daily life."
-            />
-            <BlogPostCard
-              title="Innovative Treatments for Tinnitus Management"
-              excerpt="Discover the latest approaches in managing tinnitus symptoms and improving quality of life."
-            />
-          </div>
+          <ContactForm />
         </div>
       </div>
     </section>
@@ -111,7 +85,9 @@ const Homepage = () => {
       </section>
 
       <section className="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32">
-        <h3 className="text-2xl font-bold mb-6 text-[#502888]">Explore our Sections</h3>
+        <h3 className="text-2xl font-bold mb-6 text-[#502888]">
+          Explore our Sections
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <CategoryBox
             icon={ClipboardList}
@@ -135,16 +111,6 @@ const Homepage = () => {
       </section>
 
       <FlexBlogSection />
-
-      <section className="relative bg-gradient-to-r from-[#502888] via-[#3F5682] to-[#2E847C] px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-12 text-center md:text-left">
-        <div className="md:flex md:items-center md:justify-center">
-          <h2 className="text-xl font-bold text-white">
-            Get in touch with us today! <br className="block md:hidden" />
-            Call us on: +1 XXX-XXX-XXXX
-          </h2>
-        </div>
-      </section>
-
       <FooterComponent />
     </BaseLayoutComponent>
   );

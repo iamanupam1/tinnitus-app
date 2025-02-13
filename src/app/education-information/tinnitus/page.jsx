@@ -5,8 +5,16 @@ import BaseLayoutComponent from "../../component/base/base-layout";
 import { Navbar } from "../../component/base/navbar";
 import FooterComponent from "../../component/base/footer";
 import DocxViewer from "../../component/base/docs-preview";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  images,
+  currentIndex,
+  onNavigate,
+  children,
+}) => {
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") {
@@ -14,18 +22,30 @@ const Modal = ({ isOpen, onClose, children }) => {
       }
     };
 
+    const handleKeyNavigation = (e) => {
+      if (e.key === "ArrowLeft") {
+        onNavigate(currentIndex - 1);
+      } else if (e.key === "ArrowRight") {
+        onNavigate(currentIndex + 1);
+      }
+    };
+
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
+      document.addEventListener("keydown", handleKeyNavigation);
       document.body.style.overflow = "hidden";
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("keydown", handleKeyNavigation);
       document.body.style.overflow = "unset";
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, currentIndex, onNavigate]);
 
   if (!isOpen) return null;
+
+  const showNavigation = images && images.length > 1;
 
   return (
     <div
@@ -55,14 +75,59 @@ const Modal = ({ isOpen, onClose, children }) => {
             />
           </svg>
         </button>
+
+        {showNavigation && currentIndex > 0 && (
+          <button
+            className="absolute left-4 top-1/2 z-50 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors duration-200"
+            onClick={(e) => {
+              e.stopPropagation();
+              onNavigate(currentIndex - 1);
+            }}
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+        )}
+
+        {showNavigation && currentIndex < images.length - 1 && (
+          <button
+            className="absolute right-4 top-1/2 z-50 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors duration-200"
+            onClick={(e) => {
+              e.stopPropagation();
+              onNavigate(currentIndex + 1);
+            }}
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        )}
+
         {children}
       </div>
     </div>
   );
 };
 
-const ImageCard = ({ src, alt, caption, content }) => {
+const ImageCard = ({
+  src,
+  alt,
+  caption,
+  content,
+  sectionImages,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      const index = sectionImages.findIndex((img) => img.src === src);
+      setCurrentImageIndex(index);
+    }
+  }, [isOpen, src, sectionImages]);
+
+  const handleNavigate = (newIndex) => {
+    if (newIndex >= 0 && newIndex < sectionImages.length) {
+      setCurrentImageIndex(newIndex);
+    }
+  };
 
   return (
     <>
@@ -80,18 +145,38 @@ const ImageCard = ({ src, alt, caption, content }) => {
           />
         </div>
         <div className="p-4">
-          <p className="text-sm text-gray-600 text-center font-medium">{caption}</p>
-          <p className="text-sm text-gray-600 text-center line-clamp-2">{content}</p>
+          <p className="text-sm text-gray-600 text-center font-medium">
+            {caption}
+          </p>
+          <p className="text-sm text-gray-600 text-center line-clamp-2">
+            {content}
+          </p>
         </div>
       </div>
 
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        images={sectionImages}
+        currentIndex={currentImageIndex}
+        onNavigate={handleNavigate}
+      >
         <div className="relative w-[80vw] h-[80vh]">
-          <Image src={src} alt={alt} fill className="object-contain" priority />
+          <Image
+            src={sectionImages[currentImageIndex].src}
+            alt={sectionImages[currentImageIndex].alt}
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
         <div className="bg-white p-4">
-          <p className="text-md text-gray-600 text-center font-medium">{caption}</p>
-          <p className="text-md text-gray-600 text-center">{content}</p>
+          <p className="text-md text-gray-600 text-center font-medium">
+            {sectionImages[currentImageIndex].caption}
+          </p>
+          <p className="text-md text-gray-600 text-center">
+            {sectionImages[currentImageIndex].content}
+          </p>
         </div>
       </Modal>
     </>
@@ -99,6 +184,7 @@ const ImageCard = ({ src, alt, caption, content }) => {
 };
 
 const TinnitusInformationPage = () => {
+
   const sections = [
     {
       title: "Medications Associated with Tinnitus",
@@ -153,10 +239,10 @@ const TinnitusInformationPage = () => {
       ],
     },
   ];
+
   return (
     <BaseLayoutComponent>
       <Navbar />
-      {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-[#502888] to-[#2E847C] px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-6">Tinnitus Information</h1>
@@ -185,24 +271,31 @@ const TinnitusInformationPage = () => {
             <h2 className="text-3xl font-bold mb-8 text-gray-900">
               {section.title}
             </h2>
-            <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-              {section.description}
-            </p>
+            {section.description && (
+              <p className="text-lg text-gray-700 mb-12 leading-relaxed">
+                {section.description}
+              </p>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {section?.images?.map((image, imageIndex) => (
-                <ImageCard key={imageIndex} {...image} />
+                <ImageCard
+                  key={imageIndex}
+                  {...image}
+                  sectionImages={section.images}
+                  sectionIndex={index}
+                />
               ))}
             </div>
             {section.docs ? (
               <DocxViewer
                 documents={section.docs}
                 showTitle={
-                  section.title == "Medications Associated with Tinnitus"
+                  section.title === "Medications Associated with Tinnitus"
                     ? false
                     : true
                 }
                 imageURL={
-                  section.title == "Medications Associated with Tinnitus"
+                  section.title === "Medications Associated with Tinnitus"
                     ? "/images/tinnitus/Pills in hand photo.jpg"
                     : ""
                 }
