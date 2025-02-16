@@ -172,13 +172,13 @@ const TRTPage = () => {
             Example Parable: The Smoke Alarm
           </h4>
           <p className="text-gray-700 mt-2">
-            Think of tinnitus like a smoke alarm that's malfunctioning. The
-            alarm is designed to get your attention when there's danger, but
-            sometimes it goes off even when there's no smoke. Even though it's
-            annoying, you know there's no real danger, so you gradually learn to
-            ignore it. Tinnitus works in a similar way - it's a false alarm in
+            Think of tinnitus like a smoke alarm that`&#34;s malfunctioning. The
+            alarm is designed to get your attention when there`&#34;s danger, but
+            sometimes it goes off even when there`&#34;s no smoke. Even though it`&#34;s
+            annoying, you know there`&#34;s no real danger, so you gradually learn to
+            ignore it. Tinnitus works in a similar way - it`&#34;s a false alarm in
             your auditory system that your brain can learn to filter out when
-            you understand it's not harmful.
+            you understand it`&#34;s not harmful.
           </p>
         </div>
       </div>
@@ -191,7 +191,7 @@ const TRTPage = () => {
         <p className="text-gray-700 leading-relaxed">
           Demystifying tinnitus involves addressing common myths and
           misconceptions about the condition. This process helps patients
-          understand that while tinnitus can be distressing, it's typically not
+          understand that while tinnitus can be distressing, it`&#34;s typically not
           dangerous or indicative of serious health issues. With proper
           education, patients can reduce fear and anxiety associated with their
           symptoms.
@@ -209,7 +209,7 @@ const TRTPage = () => {
           </div>
           <div className="p-3 bg-gray-50 rounded-lg">
             <h4 className="font-medium text-[#502888]">
-              Myth: If you have tinnitus, you'll go deaf
+              Myth: If you have tinnitus, you`&#34;ll go deaf
             </h4>
             <p className="text-gray-700 mt-1">
               Fact: Tinnitus and hearing loss can co-occur, but having tinnitus
@@ -268,7 +268,7 @@ const TRTPage = () => {
           <div className="p-3 bg-gray-50 rounded-lg">
             <h4 className="font-medium text-[#502888]">The Amygdala</h4>
             <p className="text-gray-700 mt-1">
-              As the brain's emotional processing center, the amygdala can
+              As the brain`&#34;s emotional processing center, the amygdala can
               attach emotional significance to tinnitus sounds, creating
               anxiety, fear, or stress responses that reinforce the perception
               of tinnitus.
@@ -361,7 +361,7 @@ const TRTPage = () => {
             <ul className="list-disc list-inside space-y-1 text-gray-700">
               <li>
                 Attention rarely given to the tinnitus, limited to periods when
-                it's louder than normal or you are reminded of it
+                it`&#34;s louder than normal or you are reminded of it
               </li>
               <li>Noises do not intrude into normal activities</li>
               <li>
@@ -380,7 +380,7 @@ const TRTPage = () => {
         </h3>
         <p className="text-gray-700 leading-relaxed">
           Plasticity, in the context of tinnitus management, refers to the
-          brain's ability to adapt and reorganize itself in response to
+          brain`&#34;s ability to adapt and reorganize itself in response to
           tinnitus. This neural adaptability can be harnessed through therapies
           to reduce the perception of tinnitus by encouraging the brain to shift
           its focus away from the tinnitus sound and form new, less distressing
@@ -392,7 +392,7 @@ const TRTPage = () => {
               Brain Plasticity and Learning
             </h4>
             <p className="text-gray-700 mt-1">
-              The brain's plasticity allows for learning and the creation of
+              The brain`&#34;s plasticity allows for learning and the creation of
               conditioned reflexes. This occurs through modifications in the
               strength of connections between neurons, forming the basis of
               memory, conscious learning, and the development of conditioned
@@ -445,7 +445,7 @@ const TRTPage = () => {
             </h4>
             <p className="text-gray-700 mt-1">
               Counseling helps identify catastrophic thinking patterns (like "my
-              tinnitus will never improve" or "I can't handle this") and replace
+              tinnitus will never improve" or "I can`&#34;t handle this") and replace
               them with realistic, constructive thoughts. This cognitive
               restructuring reduces distress and breaks the cycle of negative
               reinforcement.
@@ -459,7 +459,7 @@ const TRTPage = () => {
               Progressive muscle relaxation, guided imagery, deep breathing
               exercises, and mindfulness meditation help reduce physiological
               tension and anxiety associated with tinnitus. Regular practice of
-              these techniques helps deactivate the autonomic nervous system's
+              these techniques helps deactivate the autonomic nervous system`&#34;s
               stress response.
             </p>
             <div className="mt-3 space-y-2">
@@ -530,7 +530,7 @@ const TRTPage = () => {
           aims to help people get used to the sounds of tinnitus so they are no
           longer bothered by them. TRT combines sound therapy and counseling.
           The goal of TRT is to help people manage their tinnitus so that it
-          doesn't interfere with their lives.
+          doesn`&#34;t interfere with their lives.
         </p>
         <div className="my-12">
           <h2 className="text-2xl font-bold text-[#502888] mb-4">
