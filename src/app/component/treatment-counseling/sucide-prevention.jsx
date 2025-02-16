@@ -86,7 +86,7 @@ const SuicidePreventionSection = () => {
         <h3 className="text-2xl font-semibold text-teal-800 mb-4">
           Treatment Devices
         </h3>
-        <h4 className="text-2xl font-semibold mb-4">
+        {/* <h4 className="text-2xl font-semibold mb-4">
           Neuromod Lenire
         </h4>
         <p className="mt-2 leading-relaxed text-justify">
@@ -107,7 +107,7 @@ const SuicidePreventionSection = () => {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
-        </div>
+        </div> */}
         <h4 className="text-2xl font-semibold my-4">
           Neosensory
         </h4>

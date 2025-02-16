@@ -3,16 +3,6 @@ import DocxViewer from "../base/docs-preview";
 
 const OtherProtocolsSection = () => {
   const allDocs = {
-    thl: [
-      {
-        fileName: "Real Ear Measures",
-        uri: "/docs/protocols/REAL EAR MEASURES for sound generators.docx",
-      },
-      {
-        fileName: "Stochastic Resonance",
-        uri: "/docs/protocols/Stochastic resonance definition.docx",
-      },
-    ],
     relaxation: [
       {
         fileName: "Relaxation for Therapy Patients",
@@ -51,9 +41,6 @@ const OtherProtocolsSection = () => {
           comprehensive and effective approach to managing their tinnitus,
           leading to better overall outcomes and quality of life.
         </p>
-        <div className="mt-4">
-          <DocxViewer documents={allDocs.thl} />
-        </div>
       </div>
       <div className="mb-8 bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-2xl font-semibold text-teal-800 mb-4">
