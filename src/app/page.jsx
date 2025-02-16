@@ -5,6 +5,7 @@ import { ClipboardList, BookOpen, Stethoscope, ArrowRight } from "lucide-react";
 import BaseLayoutComponent from "./component/base/base-layout";
 import { Navbar } from "./component/base/navbar";
 import { HeroSection } from "./component/home/hero-section";
+import ExploreSection from "./component/home/explore-section";
 import FooterComponent from "./component/base/footer";
 import ContactForm from "./component/home/contact-form";
 import Link from "next/link";
@@ -84,31 +85,7 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section className="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32">
-        <h3 className="text-2xl font-bold mb-6 text-[#502888]">
-          Explore our Sections
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <CategoryBox
-            icon={ClipboardList}
-            title="Questionnaires and Assessments"
-            description="Evaluate tinnitus impact and track progress"
-            link="/questionnaire-assessment"
-          />
-          <CategoryBox
-            icon={BookOpen}
-            title="Educational Information"
-            description="Learn about tinnitus causes, effects, and management"
-            link="#"
-          />
-          <CategoryBox
-            icon={Stethoscope}
-            title="Tinnitus Treatment & Counseling"
-            description="Explore treatment options and counseling techniques"
-            link="#"
-          />
-        </div>
-      </section>
+      <ExploreSection />
 
       <FlexBlogSection />
       <FooterComponent />

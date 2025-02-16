@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import BaseLayoutComponent from "../component/base/base-layout";
 import { Navbar } from "../component/base/navbar";
 import FooterComponent from "../component/base/footer";
@@ -9,6 +10,18 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 const TreatmentCounselingPage = () => {
+
+  useEffect(() => {
+      const hash = window.location.hash;
+      if (hash) {
+        const elementId = hash.slice(1);
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }, [window.location.hash]);
+
   const protocols = [
     {
       title: "Mindfulness Meditation",
@@ -84,7 +97,7 @@ const TreatmentCounselingPage = () => {
           </div>
         </div>
       </section>
-      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-white">
+      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-white" id="protocols">
         <h2 className="text-3xl font-bold mb-6 text-[#502888]">
           Treatment Protocols
         </h2>

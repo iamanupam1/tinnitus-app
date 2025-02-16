@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import BaseLayoutComponent from "../component/base/base-layout";
 import { Navbar } from "../component/base/navbar";
 import FooterComponent from "../component/base/footer";
@@ -7,6 +8,16 @@ import Link from "next/link";
 import { QUESTION_PARENT_LIST } from "../../enum";
 
 const QuestionnaireAssessmentPage = () => {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const elementId = hash.slice(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [window.location.hash]);
 
   const CardComponent = ({ data }) => {
     return (
@@ -47,8 +58,6 @@ const QuestionnaireAssessmentPage = () => {
     );
   };
 
-  const frontOfficeExcerpt =
-    "The total score from questions 4, 5 and 6 are added and if the score of 10 or greater will indicate that the patient needs to have a complete tinnitus evaluation in a Fellow Member Tinnitus Clinic. ";
 
   return (
     <BaseLayoutComponent>
@@ -59,10 +68,12 @@ const QuestionnaireAssessmentPage = () => {
           <h1 className="text-4xl font-bold mb-4">
             Questionnaires and Assessments
           </h1>
-          <p className="text-xl">Tailored Questionnaires to Guide Treatment and Care Plans</p>
+          <p className="text-xl">
+            Tailored Questionnaires to Guide Treatment and Care Plans
+          </p>
         </div>
       </section>
-      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-10">
+      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-10" id="questionnaire">
         <div className="mb-5">
           <h2 className="text-3xl leading-tight font-bold mt-4 text-[#502888]">
             Questionnaires

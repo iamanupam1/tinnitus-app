@@ -57,7 +57,7 @@ const SuicidePreventionSection = () => {
   };
 
   return (
-    <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-16 pb-4 bg-gray-100">
+    <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-16 pb-4 bg-gray-100" id="suicide">
       <h2 className="text-3xl font-bold mb-12 text-gray-800">
         Suicide Prevention and Treatment Devices
       </h2>
