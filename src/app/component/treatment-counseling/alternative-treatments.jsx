@@ -24,7 +24,7 @@ const AlternativeTreatmentSection = () => {
   ];
 
   return (
-    <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-16 pb-4 bg-white">
+    <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-16 pb-4 bg-white" id="alternative">
       <h2 className="text-3xl font-bold mb-12 text-gray-800">
         Alternative Treatments
       </h2>

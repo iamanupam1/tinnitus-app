@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import BaseLayoutComponent from "../component/base/base-layout";
 import { Navbar } from "../component/base/navbar";
 import FooterComponent from "../component/base/footer";
@@ -9,34 +10,52 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 const TreatmentCounselingPage = () => {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const elementId = hash.slice(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [window.location.hash]);
+
   const protocols = [
-    {
-      title: "Mindfulness Meditation",
-      description:
-        "A practice involving focused attention and awareness to help manage the stress and anxiety associated with tinnitus, promoting relaxation and well-being.",
-      image: "/images/meditation.jpg",
-      link: "/treatment-counseling/mindful"
-    },
     {
       title: "Sound Therapy",
       description:
         "An intervention that utilizes specific sound patterns, such as white noise, nature sounds, or customized sound frequencies, to mask tinnitus and provide relief.",
-      image: "/images/candle in dark room.jpg",
-      link: "/treatment-counseling/sound"
+      image: "/images/sound-therapy.webp",
+      link: "/treatment-counseling/sound",
     },
     {
       title: "Cognitive Behavioral Therapy",
       description:
         "A psychological treatment aimed at reshaping negative thought patterns and emotional responses to tinnitus, empowering patients with effective coping strategies.",
       image: "/images/CBT.png",
-      link: "/treatment-counseling/cbt"
+      link: "/treatment-counseling/cbt",
+    },
+    {
+      title: "Mindfulness Meditation",
+      description:
+        "A practice involving focused attention and awareness to help manage the stress and anxiety associated with tinnitus, promoting relaxation and well-being.",
+      image: "/images/meditation.jpg",
+      link: "/treatment-counseling/mindful",
     },
     {
       title: "Tinnitus Retraining Therapy",
       description:
         "A comprehensive approach combining sound therapy and counseling to retrain the brain, reducing the perception and emotional impact of tinnitus over time.",
       image: "/images/Neurophysiological model of tinnitus.jpg",
-      link: "/treatment-counseling/trt"
+      link: "/treatment-counseling/trt",
+    },
+    {
+      title: "Lenire",
+      description:
+        "Lenire is a non-invasive, FDA-approved medical device designed to treat tinnitus. It combines sound therapy with mild tongue stimulation to retrain the brain and reduce the perception of ringing in the ears. Lenire is backed by clinical trials and offers a personalized treatment plan supervised by healthcare professionals.",
+      image: "/images/lenire.jpg",
+      link: "/treatment-counseling/lenire",
     },
   ];
 
@@ -84,7 +103,10 @@ const TreatmentCounselingPage = () => {
           </div>
         </div>
       </section>
-      <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-white">
+      <section
+        className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-white"
+        id="protocols"
+      >
         <h2 className="text-3xl font-bold mb-6 text-[#502888]">
           Treatment Protocols
         </h2>
@@ -109,7 +131,9 @@ const TreatmentCounselingPage = () => {
                 <h3 className="text-xl font-bold mb-3 text-[#502888]">
                   {protocol.title}
                 </h3>
-                <p className="text-[#000000]">{protocol.description}</p>{" "}
+                <p className="text-[#000000] line-clamp-4">
+                  {protocol.description}
+                </p>{" "}
                 <Link
                   href={protocol.link}
                   className="my-5 group flex items-center w-fit gap-2 rounded-lg border border-[#502888] bg-white px-4 py-2 text-sm font-medium text-[#502888] shadow-sm hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
