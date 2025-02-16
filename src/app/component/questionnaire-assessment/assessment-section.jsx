@@ -59,7 +59,7 @@ const AssessmentSection = () => {
   ];
 
   return (
-    <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-gray-100">
+    <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-gray-100" id="assessment">
       <div>
         <h2 className="text-4xl leading-tight font-bold mb-8">Assessments</h2>
       </div>
@@ -126,7 +126,7 @@ const AssessmentSection = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-6 rounded-xl shadow-lg w-100">
+      <div className="bg-white p-6 rounded-xl shadow-lg w-100" id="protocols">
         <div>
           <h3 className="text-2xl font-semibold mb-6">Protocols</h3>
           <Accordion items={assessmentItems} />
