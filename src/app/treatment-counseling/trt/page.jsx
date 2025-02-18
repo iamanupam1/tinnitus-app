@@ -6,6 +6,7 @@ import FooterComponent from "../../component/base/footer";
 import Link from "next/link";
 import Image from "next/image";
 import DocxViewer from "../../component/base/docs-preview";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const TRTPage = () => {
   const [activeTab, setActiveTab] = useState("understanding");
@@ -92,6 +93,34 @@ const TRTPage = () => {
       link: "https://www.widex.com/en-us/hearing-aids/smartric/",
     },
   ];
+  const allParables = [
+    {
+      fileName: "Parables for counseling",
+      uri: "/docs/trt/Parables for counseling.pdf",
+    },
+    {
+      fileName: "PARABLES",
+      uri: "/docs/trt/PARABLES.docx",
+    },
+    {
+      fileName:
+        "Philosophy of Life - Golf ball and sand big things v small things",
+      uri: "/docs/trt/Philosophy of Life - Golf ball and sand big things v small things.docx",
+    },
+  ];
+  const allReticular = [
+    {
+      fileName:
+        "Explanation of the Reticular Formation and Limbic system actions",
+      uri: "/docs/trt/Explanation of the Reticular Formation and Limbic system actions.docx",
+    },
+  ];
+  const allHabit = [
+    {
+      fileName: "Habituation of tinnitus induced reactions",
+      uri: "/docs/trt/Habituation of tinnitus induced reactions.docx",
+    },
+  ];
   const AppCard = ({ key, name, imageUrl, link }) => (
     <Link
       key={key}
@@ -168,18 +197,7 @@ const TRTPage = () => {
           tinnitus sounds.
         </p>
         <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-          <h4 className="font-medium text-[#502888]">
-            Example Parable: The Smoke Alarm
-          </h4>
-          <p className="text-gray-700 mt-2">
-            Think of tinnitus like a smoke alarm that`&#34;s malfunctioning. The
-            alarm is designed to get your attention when there`&#34;s danger, but
-            sometimes it goes off even when there`&#34;s no smoke. Even though it`&#34;s
-            annoying, you know there`&#34;s no real danger, so you gradually learn to
-            ignore it. Tinnitus works in a similar way - it`&#34;s a false alarm in
-            your auditory system that your brain can learn to filter out when
-            you understand it`&#34;s not harmful.
-          </p>
+          <DocxViewer documents={allParables} title="Addition Resources" />
         </div>
       </div>
     ),
@@ -191,8 +209,8 @@ const TRTPage = () => {
         <p className="text-gray-700 leading-relaxed">
           Demystifying tinnitus involves addressing common myths and
           misconceptions about the condition. This process helps patients
-          understand that while tinnitus can be distressing, it`&#34;s typically not
-          dangerous or indicative of serious health issues. With proper
+          understand that while tinnitus can be distressing, it`&#34;s typically
+          not dangerous or indicative of serious health issues. With proper
           education, patients can reduce fear and anxiety associated with their
           symptoms.
         </p>
@@ -233,10 +251,10 @@ const TRTPage = () => {
         </p>
         <div className="mt-4 text-center">
           <Link
-            href="/education"
+            href="/education-information/auditory"
             className="inline-block px-6 py-2 bg-[#502888] text-white rounded-lg hover:bg-[#3e1f68] transition-colors"
           >
-            Learn More on Education Page
+            Learn More
           </Link>
         </div>
       </div>
@@ -247,28 +265,72 @@ const TRTPage = () => {
           Understanding Non-Auditory Systems and Limbic System
         </h3>
         <p className="text-gray-700 leading-relaxed">
-          The perception and impact of tinnitus extends beyond the auditory
-          system. The limbic system (responsible for emotions), the reticular
-          formation (involved in attention and awareness), and the amygdala
-          (processing emotional reactions) all play crucial roles in how
-          tinnitus affects individuals.
+          The limbic system is the part of the brain involved in our behavioral
+          and emotional responses, especially when it comes to behaviors we need
+          for survival: feeding, reproduction and caring for our young, and
+          fight or flight responses. The Limbic System is our first, primitive
+          brain which we received when we were put on this planet to survive. It
+          is responsible for protecting us from dangerous events. It is also
+          responsible for our emotional associations, memory and learning.
         </p>
         <div className="mt-4 space-y-4">
           <div className="p-3 bg-gray-50 rounded-lg">
             <h4 className="font-medium text-[#502888]">
               The Reticular Formation
             </h4>
+            <Image
+              src="/images/reticular-formation in red.jpg"
+              className="my-5"
+              alt="dasd"
+              height={200}
+              width={200}
+            />
             <p className="text-gray-700 mt-1">
-              This network of neurons in the brainstem regulates arousal and
-              awareness. In tinnitus, an overactive reticular formation can make
-              tinnitus sounds more noticeable by keeping them in conscious
-              awareness.
+              The reticular formation is a network of interconnected neurons
+              located in the brainstem, extending from the medulla oblongata
+              through the pons and into the midbrain. It spans the central core
+              of the brainstem and is involved in several crucial functions.
             </p>
+            <ul className="list-disc list-inside space-y-1 text-gray-700 my-3">
+              <li>
+                Regulation of Arousal and Consciousness: The reticular formation
+                plays a key role in maintaining alertness and wakefulness. It is
+                involved in the sleep-wake cycle and helps regulate levels of
+                consciousness.
+              </li>
+              <li>
+                Motor Control: It helps coordinate motor functions by
+                transmitting signals to the spinal cord, thus influencing
+                voluntary motor control and muscle tone.
+              </li>
+              <li>
+                Autonomic Functions: The reticular formation modulates vital
+                autonomic functions like heart rate, respiratory rate, and blood
+                pressure by interacting with the autonomic nervous system.
+              </li>
+              <li>
+                Pain Modulation: It is involved in the perception of pain by
+                modulating the transmission of pain signals.
+              </li>
+              <li>
+                Attention and Filtering: The reticular formation helps filter
+                out irrelevant stimuli, allowing the brain to focus on important
+                sensory information, thereby playing a role in attention
+              </li>
+            </ul>
+            <DocxViewer documents={allReticular} title="Addition Resources" />
           </div>
           <div className="p-3 bg-gray-50 rounded-lg">
             <h4 className="font-medium text-[#502888]">The Amygdala</h4>
+            <Image
+              src="/images/limbic/brain anatomy amygdala in red.jpg"
+              className="my-5"
+              alt="dasd"
+              height={400}
+              width={400}
+            />
             <p className="text-gray-700 mt-1">
-              As the brain`&#34;s emotional processing center, the amygdala can
+              As the brain's emotional processing center, the amygdala can
               attach emotional significance to tinnitus sounds, creating
               anxiety, fear, or stress responses that reinforce the perception
               of tinnitus.
@@ -277,10 +339,10 @@ const TRTPage = () => {
         </div>
         <div className="mt-4 text-center">
           <Link
-            href="/education"
+            href="/education-information/limbic"
             className="inline-block px-6 py-2 bg-[#502888] text-white rounded-lg hover:bg-[#3e1f68] transition-colors"
           >
-            Learn More on Education Page
+            Learn More
           </Link>
         </div>
       </div>
@@ -370,6 +432,9 @@ const TRTPage = () => {
               </li>
             </ul>
           </div>
+          <div className="p-4 bg-gray-50 rounded-lg">
+            <DocxViewer documents={allHabit} title="Addition Resources" />
+          </div>
         </div>
       </div>
     ),
@@ -380,7 +445,7 @@ const TRTPage = () => {
         </h3>
         <p className="text-gray-700 leading-relaxed">
           Plasticity, in the context of tinnitus management, refers to the
-          brain`&#34;s ability to adapt and reorganize itself in response to
+          brain's ability to adapt and reorganize itself in response to
           tinnitus. This neural adaptability can be harnessed through therapies
           to reduce the perception of tinnitus by encouraging the brain to shift
           its focus away from the tinnitus sound and form new, less distressing
@@ -388,40 +453,33 @@ const TRTPage = () => {
         </p>
         <div className="mt-4 space-y-4">
           <div className="p-3 bg-gray-50 rounded-lg">
-            <h4 className="font-medium text-[#502888]">
-              Brain Plasticity and Learning
-            </h4>
-            <p className="text-gray-700 mt-1">
-              The brain`&#34;s plasticity allows for learning and the creation of
-              conditioned reflexes. This occurs through modifications in the
-              strength of connections between neurons, forming the basis of
-              memory, conscious learning, and the development of conditioned
-              reflexes.
+            <p className="text-gray-700 mb-5">
+              Plasticity of the brain allows learning and creation of
+              conditioned reflexes.The brain can undergo modification and
+              plastic changes – this happens through modification of the
+              strength of connections between neurons. This is the basis of
+              memory, learning at a conscious level and development of
+              conditioned reflexes.
             </p>
-          </div>
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <h4 className="font-medium text-[#502888]">
-              Relearning and Retraining
-            </h4>
-            <p className="text-gray-700 mt-1">
-              Relearning or correcting previously learned behaviors often takes
-              longer than initial learning. This principle applies to various
-              skills, from sports to language acquisition. For tinnitus
-              patients, retraining conditioned reflexes will take time but can
-              be achieved through consistent, proper exercises.
+            <p className="text-gray-700 mb-5">
+              This is how we learn new languages or learn to play a new sport
+              like golf. (or re-learn the correct way to swing a club after
+              years of doing it wrong – but when you learn it wrong, it will
+              take you longer to correct and learn the right way than learning
+              it correctly from the get go).
+              <span className="text-red-600">
+                RELEARNING TAKES A LONGER TIME THAN INITIAL TRAINING FROM A
+                NAÏVE STATE.
+              </span>
             </p>
-          </div>
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <h4 className="font-medium text-[#502888]">
-              Tinnitus Retraining Process
-            </h4>
-            <p className="text-gray-700 mt-1">
-              Tinnitus patients need to perform exercises over time aimed at
-              extinguishing inappropriate reflexes. These reflexes link
-              tinnitus-related neuronal activity within the auditory system to
-              the activation of systems responsible for anxiety and annoyance.
-              The stronger the emotional association, the longer this retraining
-              process may take.
+            <p className="text-gray-700 mb-5">
+              So- retraining a conditioned reflex will take time but will occur
+              by performing proper exercises - TINNITUS patients will need to
+              perform (over time) exercises aimed at extinction of inappropriate
+              reflexes that link the tinnitus related neuronal activity within
+              the auditory system with activation of the systems responsible for
+              anxiety and annoyance, etc. (the stronger the emotional
+              association the longer it may take to do this)
             </p>
           </div>
         </div>
@@ -439,40 +497,145 @@ const TRTPage = () => {
           emotional reactions and supports habituation.
         </p>
         <div className="mt-4 space-y-4">
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <h4 className="font-medium text-[#502888]">
-              Managing Negative Thoughts
-            </h4>
-            <p className="text-gray-700 mt-1">
-              Counseling helps identify catastrophic thinking patterns (like "my
-              tinnitus will never improve" or "I can`&#34;t handle this") and replace
-              them with realistic, constructive thoughts. This cognitive
-              restructuring reduces distress and breaks the cycle of negative
-              reinforcement.
-            </p>
-          </div>
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <h4 className="font-medium text-[#502888]">
-              Relaxation Techniques
-            </h4>
-            <p className="text-gray-700 mt-1">
-              Progressive muscle relaxation, guided imagery, deep breathing
-              exercises, and mindfulness meditation help reduce physiological
-              tension and anxiety associated with tinnitus. Regular practice of
-              these techniques helps deactivate the autonomic nervous system`&#34;s
-              stress response.
-            </p>
-            <div className="mt-3 space-y-2">
-              <h5 className="font-medium text-[#502888] text-sm">
-                Common Relaxation Approaches:
-              </h5>
-              <ul className="list-disc list-inside">
-                <li>Progressive Muscle Relaxation (PMR)</li>
-                <li>Mindfulness-Based Stress Reduction (MBSR)</li>
-                <li>Guided visualization exercises</li>
-                <li>Deep breathing techniques</li>
+          <div>
+            <div className="p-3 bg-gray-50 rounded-lg">
+              <Image
+                src="/images/meditation.jpg"
+                className="my-5"
+                alt="Person meditating"
+                height={400}
+                width={400}
+              />
+              <h3 className="text-xl font-semibold text-[#502888] my-2">
+                Automatic Negative Thoughts (ANTS)
+              </h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>
+                  Negative thoughts not only lead us to feel anxious, angry, or
+                  depressed, they also lead to a change in the level of stress
+                  arousal, or anxiety, in our bodies.
+                </li>
+                <li>
+                  Physical changes from anxiety are an integral part of the
+                  emotional experience. When we are in an anxious/aroused mood,
+                  we also have changes in our bodies, such as increases in heart
+                  rate, muscle tension (including a feeling of tension and
+                  sometimes pain in the head, neck, and shoulders), breathing
+                  rate, and digestion rate (ANS). In the upper gut, things
+                  actually slow down, and we feel butterflies or nausea, as well
+                  as an increase in frequency and urgency to use the toilet
+                  (ANS).
+                </li>
+                <li>
+                  Many tinnitus patients complain of such symptoms, particularly
+                  headache or pains around the ear and a general feeling of
+                  being tense. There are many other physical changes that can
+                  take place, such as sleeping difficulties.
+                </li>
               </ul>
             </div>
+
+            <div className="mt-6 bg-gray-50 rounded-lg p-3">
+              <h4 className="text-lg font-semibold mb-3">
+                Examples of Fixing ANTS:
+              </h4>
+              <div className="overflow-x-auto">
+                <table className="min-w-full border-collapse">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-2 w-1/2">
+                        Negative AT
+                      </th>
+                      <th className="border border-gray-300 px-4 py-2 w-1/2">
+                        Corrective AT
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-2 w-1/2">
+                        Oh my God! Here it goes again.
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2 w-1/2">
+                        It happened before and I survived
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-2 w-1/2">
+                        I always lose control of my emotions
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2 w-1/2">
+                        But I have not lost control yet
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-2 w-1/2">
+                        Here it goes again, it will ruin my whole day
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2 w-1/2">
+                        Last time it was also so loud, but I managed to go
+                        through the day
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-2 w-1/2">
+                        I hear it again, It will be for the rest of my life
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2 w-1/2">
+                        How do I know, last time I thought my headache would
+                        never end - it stopped the next day
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3 bg-gray-50 rounded-lg">
+            <h3 className="text-xl font-semibold text-[#502888] mb-2">
+              Relaxation
+            </h3>
+            <p className="text-gray-700 mb-5">
+              Although it seems impossible even tinnitus patients can learn how
+              to relax
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>
+                The ANS has two branches: the sympathetic nervous system (SNS)
+                and the parasympathetic nervous system (PNS)
+              </li>
+              <li>
+                The sympathetic nervous system activates our body – the
+                parasympathetic nervous system calms it down
+              </li>
+              <li>Normally they both balance each other </li>
+              <li>
+                When we suffer from anxiety caused by tinnitus the SNS learns to
+                dominate.
+              </li>
+            </ul>
+            <p className="text-gray-700 my-5">
+              However, too much activation increases anxiety
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>
+                To reduce anxiety we need to engage the parasympathetic nervous
+                system; How?{" "}
+                <b>
+                  Engage in activities which make you feel good. (identify these
+                  activities and keep doing them)
+                </b>
+              </li>
+              <li>
+                Parasympathetic nervous system has a counter-balance to the
+                fight-or-flight response flight response named by Herbert Benson
+              </li>
+              <li>
+                The relaxation response slows down breathing helps to lower
+                heart rate and metabolism (inhale on 4, exhale on 6)
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -522,6 +685,23 @@ const TRTPage = () => {
           <h1 className="text-5xl font-bold mb-6">
             Tinnitus Retraining Therapy (TRT)
           </h1>
+          <div className="flex justify-between mt-12">
+            <Link
+              href="/treatment-counseling/mindful"
+              className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition duration-300 text-white px-6 py-3 rounded-full"
+            >
+              <ChevronLeft />
+              Mindfulness Meditation
+            </Link>
+
+            <Link
+              href="/treatment-counseling/lenire"
+              className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition duration-300 text-white px-6 py-3 rounded-full"
+            >
+              Lenire
+              <ChevronRight />
+            </Link>
+          </div>
         </div>
       </section>
       <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-white bg-opacity-10">

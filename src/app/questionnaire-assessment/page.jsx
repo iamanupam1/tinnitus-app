@@ -17,7 +17,7 @@ const QuestionnaireAssessmentPage = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, [window.location.hash]);
+  }, [window?.location?.hash]);
 
   const CardComponent = ({ data }) => {
     return (

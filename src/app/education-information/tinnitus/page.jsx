@@ -199,12 +199,12 @@ const TinnitusInformationPage = () => {
       title: "Medical and Non-Medical Causes Associate",
       images: [
         {
-          src: "/images/tinnitus/Ossicular dysfunction.jpg",
+          src: "/images/chain discontinuity.jpg",
           alt: "Ossicular dysfunction",
           caption: "Ossicular dysfunction",
         },
         {
-          src: "/images/tinnitus/Otosclerosis.jpg",
+          src: "/images/otosclerosis.png",
           alt: "Otosclerosis",
           caption: "Otosclerosis",
         },
