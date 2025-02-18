@@ -3,6 +3,8 @@ import BaseLayoutComponent from "../../component/base/base-layout";
 import { Navbar } from "../../component/base/navbar";
 import FooterComponent from "../../component/base/footer";
 import DocxViewer from "../../component/base/docs-preview";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const CBTPage = () => {
   const cbt = [
@@ -13,8 +15,8 @@ const CBTPage = () => {
     {
       fileName: "Oto App Based CBT",
       imageURL: "/images/sound/Oto App Based CBT.webp",
-      type:"link",
-      link:"https://www.joinoto.com/"
+      type: "link",
+      link: "https://www.joinoto.com/",
     },
   ];
 
@@ -64,6 +66,24 @@ const CBTPage = () => {
           <h1 className="text-5xl font-bold mb-6">
             Cognitive Behavioral Therapy (CBT)
           </h1>
+
+          <div className="flex justify-between mt-12">
+            <Link
+              href="/treatment-counseling/sound"
+              className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition duration-300 text-white px-6 py-3 rounded-full"
+            >
+              <ChevronLeft />
+              Sound Therapy
+            </Link>
+
+            <Link
+              href="/treatment-counseling/mindful"
+              className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition duration-300 text-white px-6 py-3 rounded-full"
+            >
+              Mindfulness Meditation
+              <ChevronRight />
+            </Link>
+          </div>
         </div>
       </section>
 

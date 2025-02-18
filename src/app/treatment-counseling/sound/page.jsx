@@ -5,7 +5,7 @@ import FooterComponent from "../../component/base/footer";
 import DocxViewer from "../../component/base/docs-preview";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const SoundTherapyPage = () => {
   const auditoryEffects = [
@@ -175,7 +175,24 @@ const SoundTherapyPage = () => {
       <Navbar />
       <section className="relative bg-gradient-to-r from-[#502888] to-[#2E847C] px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
         <div className="text-center">
-          <h1 className="text-5xl font-bold mb-6">Sound Therapy </h1>
+          <h1 className="text-5xl font-bold mb-6">Sound Therapy</h1>
+        </div>
+        <div className="flex justify-between mt-12">
+          <Link
+            href="/treatment-counseling/lenire"
+            className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition duration-300 text-white px-6 py-3 rounded-full"
+          >
+            <ChevronLeft />
+            Lenire
+          </Link>
+
+          <Link
+            href="/treatment-counseling/cbt"
+            className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition duration-300 text-white px-6 py-3 rounded-full"
+          >
+            Cognitive Behavioral Therapy
+            <ChevronRight />
+          </Link>
         </div>
       </section>
       <section className="px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 bg-white bg-opacity-10">

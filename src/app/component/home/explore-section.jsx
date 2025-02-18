@@ -79,6 +79,7 @@ const ExploreSection = () => {
           label: "Anatomy of Auditory Systems",
           href: "/education-information/auditory",
         },
+        { label: "Nervous System", href: "/education-information/nervous" },
         { label: "Limbic System", href: "/education-information/limbic" },
         { label: "Tinnitus", href: "/education-information/tinnitus" },
         { label: "Hyperacusis", href: "/education-information/hyperacusis" },
@@ -96,7 +97,7 @@ const ExploreSection = () => {
         },
         {
           label: "Suicide Prevention and Treatment Devices",
-          href: "/treatment-counselin#suicide",
+          href: "/treatment-counseling#suicide",
         },
         {
           label: "Other Protocols and Strategies",

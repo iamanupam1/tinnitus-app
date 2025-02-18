@@ -60,7 +60,7 @@ const EducationalInformationPage = () => {
           </div>
           <div className="md:w-1/2 p-8">
             <h3 className="text-2xl font-bold text-[#502888] mb-4">
-              Anatomy of Auditory Systems
+              Auditory Pathways
             </h3>
             <p className="text-[#000000] mb-6">
               Explores the structure and function of the auditory pathway, from
@@ -75,17 +75,36 @@ const EducationalInformationPage = () => {
           </div>
         </section>
 
-        {/* Limbic System Section */}
-        <section className="flex flex-col md:flex-row-reverse items-center bg-white rounded-lg shadow-lg overflow-hidden">
+        {/* Nervous System Section */}
+        <section className="flex flex-col md:flex-row-reverse items-center justify-between bg-white rounded-lg shadow-lg overflow-hidden gap-10">
           <div className="md:w-1/2">
             <Image
-              width={500}
-              height={500}
-              src="/images/Limbic system.jpg"
-              alt="Limbic System"
-              className="w-full h-full object-cover"
+              width={100}
+              height={100}
+              src="/images/nervous/nerve.png"
+              alt="Nervous System"
+              className="rotate-90"
             />
           </div>
+          <div className="md:w-1/2 p-8">
+            <h3 className="text-2xl font-bold text-[#502888] mb-4">
+              Nervous System
+            </h3>
+            <p className="text-[#000000] mb-6">
+              A key brain region involved in emotions, memory, and the
+              processing of auditory stimuli.
+            </p>
+            <Link
+              href="/education-information/nervous"
+              className="inline-block bg-[#2E847C] text-white px-6 py-3 rounded-full hover:bg-[#3F5682] transition-colors"
+            >
+              Learn More
+            </Link>
+          </div>
+        </section>
+
+        {/* Limbic System Section */}
+        <section className="flex flex-col md:flex-row-reverse items-center bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="md:w-1/2 p-8">
             <h3 className="text-2xl font-bold text-[#502888] mb-4">
               Limbic System
@@ -101,19 +120,19 @@ const EducationalInformationPage = () => {
               Learn More
             </Link>
           </div>
-        </section>
-
-        {/* Tinnitus Impact Section */}
-        <section className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="md:w-1/2">
             <Image
               width={500}
               height={500}
-              src="/images/tinnitus photo woman .jpg"
-              alt="Tinnitus Impact"
+              src="/images/Limbic system.jpg"
+              alt="Limbic System"
               className="w-full h-full object-cover"
             />
           </div>
+        </section>
+
+        {/* Tinnitus Impact Section */}
+        <section className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="md:w-1/2 p-8">
             <h3 className="text-2xl font-bold text-[#502888] mb-4">Tinnitus</h3>
             <p className="text-[#000000] mb-6">
@@ -127,10 +146,28 @@ const EducationalInformationPage = () => {
               Learn More
             </Link>
           </div>
+          <div className="md:w-1/2">
+            <Image
+              width={500}
+              height={500}
+              src="/images/tinnitus photo woman .jpg"
+              alt="Tinnitus Impact"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </section>
 
         {/* Hyperacusis Section */}
         <section className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="md:w-1/2">
+            <Image
+              width={500}
+              height={500}
+              src="/images/hyper.png"
+              alt="Tinnitus Impact"
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="md:w-1/2 p-8">
             <h3 className="text-2xl font-bold text-[#502888] mb-4">
               Hyperacusis
@@ -145,15 +182,6 @@ const EducationalInformationPage = () => {
             >
               Learn More
             </Link>
-          </div>
-          <div className="md:w-1/2">
-            <Image
-              width={500}
-              height={500}
-              src="/images/hyper.png"
-              alt="Tinnitus Impact"
-              className="w-full h-full object-cover"
-            />
           </div>
         </section>
       </div>

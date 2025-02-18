@@ -2,6 +2,8 @@ import React from "react";
 import BaseLayoutComponent from "../../component/base/base-layout";
 import { Navbar } from "../../component/base/navbar";
 import FooterComponent from "../../component/base/footer";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const TRTPage = () => {
   return (
@@ -10,6 +12,23 @@ const TRTPage = () => {
       <section className="relative bg-gradient-to-r from-[#502888] to-[#2E847C] px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pt-[200px] pb-32 text-white">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-6">Lenire</h1>
+          <div className="flex justify-between mt-12">
+            <Link
+              href="/treatment-counseling/trt"
+              className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition duration-300 text-white px-6 py-3 rounded-full"
+            >
+              <ChevronLeft />
+              Tinnitus Retraining Therapy
+            </Link>
+
+            <Link
+              href="/treatment-counseling/sound"
+              className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition duration-300 text-white px-6 py-3 rounded-full"
+            >
+              Sound Therapy
+              <ChevronRight />
+            </Link>
+          </div>
         </div>
       </section>
 
