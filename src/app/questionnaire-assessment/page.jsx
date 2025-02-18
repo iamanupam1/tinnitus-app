@@ -6,18 +6,22 @@ import FooterComponent from "../component/base/footer";
 import AssessmentSection from "../component/questionnaire-assessment/assessment-section";
 import Link from "next/link";
 import { QUESTION_PARENT_LIST } from "../../enum";
+import { usePathname } from "next/navigation";
 
 const QuestionnaireAssessmentPage = () => {
+  const pathname = usePathname();
+
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const elementId = hash.slice(1);
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+    if (typeof window === "undefined") return; 
+
+    const hash = window.location.hash.substring(1);
+    if (!hash) return;
+
+    const element = document.getElementById(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }, [window?.location?.hash]);
+  }, [pathname]);
 
   const CardComponent = ({ data }) => {
     return (

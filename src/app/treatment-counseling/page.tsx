@@ -8,18 +8,22 @@ import AlternativeTreatmentSection from "../component/treatment-counseling/alter
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const TreatmentCounselingPage = () => {
+  const pathname = usePathname();
+
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const elementId = hash.slice(1);
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+    if (typeof window === "undefined") return; 
+
+    const hash = window.location.hash.substring(1);
+    if (!hash) return;
+
+    const element = document.getElementById(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }, [window?.location?.hash]);
+  }, [pathname]);
 
   const protocols = [
     {

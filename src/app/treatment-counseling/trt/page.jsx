@@ -191,8 +191,8 @@ const TRTPage = () => {
           Understanding tinnitus through parables can help patients better
           conceptualize their condition. These stories and metaphors provide
           relatable examples that demonstrate how tinnitus affects the brain and
-          why certain therapeutic approaches work. Common parables include "The
-          Smoke Alarm," "The Party Guest," and "The Leaky Faucet," each
+          why certain therapeutic approaches work. Common parables include &quot;The
+          Smoke Alarm,&quot; &quot;The Party Guest,&quot; and &quot;The Leaky Faucet,&quot; each
           illustrating different aspects of how we perceive and react to
           tinnitus sounds.
         </p>
@@ -330,7 +330,7 @@ const TRTPage = () => {
               width={400}
             />
             <p className="text-gray-700 mt-1">
-              As the brain's emotional processing center, the amygdala can
+              As the brain&apos;s emotional processing center, the amygdala can
               attach emotional significance to tinnitus sounds, creating
               anxiety, fear, or stress responses that reinforce the perception
               of tinnitus.
@@ -445,7 +445,7 @@ const TRTPage = () => {
         </h3>
         <p className="text-gray-700 leading-relaxed">
           Plasticity, in the context of tinnitus management, refers to the
-          brain's ability to adapt and reorganize itself in response to
+          brain&apos;s ability to adapt and reorganize itself in response to
           tinnitus. This neural adaptability can be harnessed through therapies
           to reduce the perception of tinnitus by encouraging the brain to shift
           its focus away from the tinnitus sound and form new, less distressing
@@ -721,7 +721,7 @@ const TRTPage = () => {
               Sound therapy for tinnitus has been recognized as a very important
               contributor in treating tinnitus because it will help decrease the
               central gain in the cochlea, detune the pattern of neuronal
-              activity in the autonomic nervous system, "brighten up" the
+              activity in the autonomic nervous system, &quot;brighten up&quot; the
               auditory environment, and reduce the way the limbic system
               evaluated the magnitude of the perceived tinnitus loudness.
             </p>
@@ -767,7 +767,7 @@ const TRTPage = () => {
               Sound therapy for tinnitus has been recognized as a very important
               contributor in treating tinnitus because it will help decrease the
               central gain in the cochlea, detune the pattern of neuronal
-              activity in the autonomic nervous system, "brighten up" the
+              activity in the autonomic nervous system, &quot;brighten up&quot; the
               auditory environment, and reduce the way the limbic system
               evaluated the magnitude of the perceived tinnitus loudness.
             </p>
