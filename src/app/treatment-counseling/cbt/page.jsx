@@ -9,14 +9,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const CBTPage = () => {
   const cbt = [
     {
-      fileName: "QUIETMIND Leaflet V9 (1)",
-      uri: "/docs/treatment/QUIETMIND Leaflet V9 (1).pdf",
-    },
-    {
       fileName: "Oto App Based CBT",
       imageURL: "/images/sound/Oto App Based CBT.webp",
       type: "link",
       link: "https://www.joinoto.com/",
+    },
+    {
+      fileName: "QUIETMIND Leaflet V9 (1)",
+      uri: "/docs/treatment/QUIETMIND Leaflet V9 (1).pdf",
     },
   ];
 

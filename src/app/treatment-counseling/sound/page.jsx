@@ -112,7 +112,7 @@ const SoundTherapyPage = () => {
     ],
     thl: [
       {
-        fileName: "Real Ear Measures",
+        fileName: "Real Ear Measures for Sound Generators",
         uri: "/docs/protocols/REAL EAR MEASURES for sound generators.docx",
       },
       {

@@ -8,11 +8,11 @@ export const Root = ({ children }) => {
   const router = useRouter();
   const { user } = useAuth();
 
-  useEffect(() => {
-    if (!user) {
-      router.push("/auth/login");
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     router.push("/auth/login");
+  //   }
+  // }, [user]);
 
   return <>{children}</>;
 };
