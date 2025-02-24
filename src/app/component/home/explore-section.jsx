@@ -80,7 +80,7 @@ const ExploreSection = () => {
           href: "/education-information/auditory",
         },
         { label: "Nervous System", href: "/education-information/nervous" },
-        { label: "Limbic System", href: "/education-information/limbic" },
+        { label: "Brain – Non-Auditory Systems", href: "/education-information/limbic" },
         { label: "Tinnitus", href: "/education-information/tinnitus" },
         { label: "Hyperacusis", href: "/education-information/hyperacusis" },
       ],

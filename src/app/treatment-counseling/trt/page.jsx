@@ -99,10 +99,6 @@ const TRTPage = () => {
       uri: "/docs/trt/Parables for counseling.pdf",
     },
     {
-      fileName: "PARABLES",
-      uri: "/docs/trt/PARABLES.docx",
-    },
-    {
       fileName:
         "Philosophy of Life - Golf ball and sand big things v small things",
       uri: "/docs/trt/Philosophy of Life - Golf ball and sand big things v small things.docx",
@@ -171,7 +167,7 @@ const TRTPage = () => {
   const allDocs = {
     thl: [
       {
-        fileName: "Real Ear Measures",
+        fileName: "Real Ear Measures for Sound Generators",
         uri: "/docs/protocols/REAL EAR MEASURES for sound generators.docx",
       },
       {
@@ -710,7 +706,7 @@ const TRTPage = () => {
           aims to help people get used to the sounds of tinnitus so they are no
           longer bothered by them. TRT combines sound therapy and counseling.
           The goal of TRT is to help people manage their tinnitus so that it
-          doesn`&#34;t interfere with their lives.
+          doesn&#39;t interfere with their lives.
         </p>
         <div className="my-12">
           <h2 className="text-2xl font-bold text-[#502888] mb-4">
