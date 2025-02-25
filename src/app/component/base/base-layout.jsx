@@ -5,6 +5,7 @@ import {
   HomeIcon,
   StethoscopeIcon,
 } from "lucide-react";
+import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
@@ -139,7 +140,7 @@ const BaseLayoutComponent = ({ children }) => {
                   className="relative"
                   onMouseEnter={() => handleItemHover(index)}
                 >
-                  <a
+                  <Link
                     href={item.path || item.children?.[0]?.path || "#"}
                     className={`flex items-center px-4 py-3 transition-all duration-200 ${
                       itemActive
@@ -166,7 +167,7 @@ const BaseLayoutComponent = ({ children }) => {
                     >
                       {item.name}
                     </span>
-                  </a>
+                  </Link>
 
                   {/* Submenu */}
                   {item.children && activeItem === index && isNavExpanded && (
@@ -182,7 +183,7 @@ const BaseLayoutComponent = ({ children }) => {
                           const childActive = isChildActive(child.path);
                           return (
                             <li key={child.name}>
-                              <a
+                              <Link
                                 href={child.path}
                                 className={`block px-4 py-2 text-sm transition-colors ${
                                   childActive
@@ -191,7 +192,7 @@ const BaseLayoutComponent = ({ children }) => {
                                 }`}
                               >
                                 {child.name}
-                              </a>
+                              </Link>
                             </li>
                           );
                         })}
