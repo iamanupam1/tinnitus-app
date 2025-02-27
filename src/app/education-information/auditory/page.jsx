@@ -237,9 +237,20 @@ const AuditoryInformationPage = () => {
         "The inner ear contains the cochlea for hearing and the vestibular system for balance. The cochlea converts sound waves into nerve signals.",
       images: [
         {
+          src: "/images/anatomy/inner/Inner Ear fluid in motion in cochlea.png",
+          alt: "Inner Ear fluid in motion in cochlea",
+          caption: "Inner Ear fluid in motion in cochlea",
+        },
+        {
           src: "/images/anatomy/inner/Corti-Diagram.jpg",
           alt: "Corti-Diagram",
           caption: "Corti-Diagram",
+        },
+
+        {
+          src: "/images/anatomy/inner/Organ of Corti.png",
+          alt: "Organ of Corti",
+          caption: "Organ of Corti",
         },
         {
           src: "/images/anatomy/inner/Inner and outer hair cell close up.png",
@@ -252,34 +263,14 @@ const AuditoryInformationPage = () => {
           caption: "Inner and outer hair cell healthy",
         },
         {
-          src: "/images/anatomy/inner/Organ of Corti drawing.png",
-          alt: "Organ of Corti drawing",
-          caption: "Organ of Corti drawing",
-        },
-        {
-          src: "/images/anatomy/inner/Organ of Corti.png",
-          alt: "Organ of Corti",
-          caption: "Organ of Corti",
-        },
-        {
-          src: "/images/anatomy/inner/Outer and inner hair cell damaged and close up of damage.jpg",
-          alt: "Outer and inner hair cell damaged and close up of damage",
-          caption: "Outer and inner hair cell damaged and close up of damage",
-        },
-        {
-          src: "/images/anatomy/inner/Inner Ear fluid in motion in cochlea.png",
-          alt: "Inner Ear fluid in motion in cochlea",
-          caption: "Inner Ear fluid in motion in cochlea",
-        },
-        {
           src: "/images/anatomy/inner/Outer hair cell bundle healthy.jpg",
           alt: "Outer hair cell bundle healthy",
           caption: "Outer hair cell bundle healthy",
         },
         {
-          src: "/images/anatomy/inner/outer middle and inner ear.jpg",
-          alt: "outer middle and inner ear",
-          caption: "outer middle and inner ear",
+          src: "/images/anatomy/inner/Outer and inner hair cell damaged and close up of damage.jpg",
+          alt: "Outer and inner hair cell damaged and close up of damage",
+          caption: "Outer and inner hair cell damaged and close up of damage",
         },
       ],
     },
